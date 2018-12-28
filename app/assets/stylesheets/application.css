@@ -1,15 +1,109 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+body {
+  margin: 0px;
+}
+
+.container {
+  background: black;
+  height: 60px;
+  position: relative;
+}
+
+/* header */
+
+.container header span {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 1.7em;
+  color: purple;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+#logo :hover {
+  color: white;
+  text-decoration: none;
+}
+
+.menuBar {
+  float: right;
+  padding-right: 10px;
+}
+.menuBar li{
+  float: left;
+  list-style-type: none;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.menuBar li a {
+  text-decoration: none;
+  color: #aaa;
+}
+
+/* footer */
+footer {
+  background: black;
+  color: white;
+  height: 60px;
+  position: absolute, bottom;
+  width: 100%;
+  bottom: 0px;
+}
+
+footer span {
+  float: left;
+  color: #aaa;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+
+/* home */
+
+.main-image {
+  height: 530px;
+  width: 100%;
+  line-height: 1;
+}
+
+/* body */
+h2 {
+  color: purple;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-left: 10px;
+  border-bottom: solid 2px #aaa;
+}

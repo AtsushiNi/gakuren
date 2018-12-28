@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Gakuren</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Gakuren</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <div class="container">
+  <header>
+      <span>偽</span>
+      <%= link_to "関西学生テニス連盟", root_path, id: "logo" %>
+      <ol class="menuBar">
+        <li><%= link_to "最新情報 |", "#" %></li>
+        <li><%= link_to "試合結果 |", "#" %></li>
+        <li><%= link_to "ライブスコア |", "#" %></li>
+        <li><%= link_to "大学紹介 |", "#" %></li>
+        <li><%= link_to "メンバー", "#" %></li>
+        </ol>
+  </header>
+  <%= yield %>
+  <footer>
+      <span>Copyright ⓒ 2018-2019 Atsushi Niihama All right reserved</span>
+    </footer>
+  </div>
+</body>
 </html>

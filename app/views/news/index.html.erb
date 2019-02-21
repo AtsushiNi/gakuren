@@ -1,0 +1,19 @@
+<%= render 'shared/flash' %>
+<h2>最新情報</h2>
+<%= link_to "投稿", new_news_path, class: "new_news" %>
+<h4>news</h4>
+<% @news.each do |each_news| %>
+  <p class="news-day">
+    <%= each_news.created_at.strftime("%Y-%m-%d") %>
+    <%= link_to "[削除]", news_path(each_news), method: :delete, data: { confirm: "Are you sure?"} %>
+  </p>
+  <p class="news-title" >
+    <%= each_news.title %>
+  </p>
+  <p class="news-pdfs">
+    <% each_news.pdfs.each do |file| %>
+    <%= link_to File.basename(file.url).match(/[^\.]*/),
+    file.url %>
+    <% end %>
+  </p>
+<% end %>

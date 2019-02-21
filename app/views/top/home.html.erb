@@ -1,3 +1,21 @@
 <img class ="main-image" src="assets/main.png" />
 <h2>最新情報</h2>
 <h4>news</h4>
+<% @news.each do |each_news| %>
+<p class="news-day">
+  <%= each_news.created_at.strftime("%Y-%m-%d") %>
+</p>
+<p class="news-title" >
+  <%= each_news.title %>
+</p>
+<p class="news-pdfs">
+  <% each_news.pdfs.each do |file| %>
+  <%= link_to File.basename(file.url).match(/[^\.]*/),
+  file.url %>
+  <% end %>
+</p>
+<% end %>
+
+<p>
+  <%= link_to "もっと見る", news_index_path, class: "news-moreToSee" %>
+</p>

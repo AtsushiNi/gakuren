@@ -21,7 +21,6 @@ body {
 .container {
   background: black;
   height: 60px;
-  position: relative;
 }
 
 /* header */
@@ -73,7 +72,7 @@ footer {
   background: black;
   color: white;
   height: 60px;
-  position: absolute, bottom;
+  position: fixed bottom;
   width: 100%;
   bottom: 0px;
 }
@@ -98,6 +97,7 @@ footer span {
 /* body */
 h2 {
   color: purple;
+  margin-top: 50px;
   margin-bottom: 0px;
   margin-left: 10px;
 }
@@ -105,5 +105,108 @@ h2 {
 h4 {
   margin-top: 0px;
   margin-left: 10px;
+  margin-bottom: 50px;
   border-bottom: solid 2px #aaa;
+}
+
+.flash-success {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 10px;
+  height: 40px;
+  font-size: 25px;
+  color: green;
+  background: palegreen;
+  font-weight: bold;
+}
+.flash-danger {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+padding-left: 10px;
+  height: 40px;
+  font-size: 25px;
+  color: red;
+  background: lightpink;
+  font-weight: bold;
+}
+/* 最新情報 */
+
+a.new_news {
+  float: right;
+  vertical-align: bottom;
+  margin-top: -15px;
+  margin-right: 10px;
+  border: solid 1px;
+  border-radius: 5px;
+  height: 28px;
+  width: 75px;
+  vertical-align: middle;
+  text-align: center;
+  color: purple;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+a.new_news:hover {
+  color: white;
+  background: purple;
+}
+.post_news {
+  vertical-align: bottom;
+  border: solid 1px;
+  border-radius: 5px;
+  padding-top: 0px;
+  height: 25px;
+  width: 70px;
+  text-align: center;
+  color: purple;
+  background: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.post_news:hover {
+  color: white;
+  background: purple;
+}
+
+#post_news_label {
+  font-weight: bold;
+  vertical-align: bottom;
+  padding-left: 10px;
+}
+
+div#post_news {
+  margin-bottom: 50px;
+}
+
+.news-day {
+  font-size: 12px;
+  font-weight: bolder;
+  margin-top: 22px;
+  margin-left: 25px;
+  margin-bottom: 5px;
+}
+
+.news-title {
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.news-pdfs {
+  border-bottom: solid 1px purple;
+  padding-bottom: 30px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.news-moreToSee {
+  margin-left: 10px;
+  color: blue;
+}
+.news-moreToSee:visited {
+  color: blue;
 }

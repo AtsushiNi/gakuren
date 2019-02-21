@@ -10,22 +10,25 @@
 </head>
 
 <body>
-  <div class="container">
   <header>
+    <div class="container">
       <span>偽</span>
       <%= link_to "関西学生テニス連盟", root_path, id: "logo" %>
       <ol class="menuBar">
-        <li><%= link_to "最新情報 |", "#" %></li>
+        <li><%= link_to "ホーム |", root_path %></li>
+        <li><%= link_to "最新情報 |", news_index_path %></li>
         <li><%= link_to "試合結果 |", "#" %></li>
         <li><%= link_to "ライブスコア |", "#" %></li>
         <li><%= link_to "大学紹介 |", "#" %></li>
         <li><%= link_to "メンバー", "#" %></li>
-        </ol>
+      </ol>
+    </div>
   </header>
   <%= yield %>
   <footer>
+    <div class="container">
       <span>Copyright ⓒ 2018-2019 Atsushi Niihama All right reserved</span>
-    </footer>
-  </div>
+    </div>
+  </footer>
 </body>
 </html>

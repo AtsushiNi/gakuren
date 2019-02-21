@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_21_192500) do
+ActiveRecord::Schema.define(version: 2019_02_21_222107) do
+
+  create_table "colleges", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "addmission_year"
+    t.string "college"
+    t.string "post"
+  end
 
   create_table "news", force: :cascade do |t|
     t.string "title"
@@ -18,6 +37,14 @@ ActiveRecord::Schema.define(version: 2019_02_21_192500) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "visible"
+  end
+
+  create_table "roots", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

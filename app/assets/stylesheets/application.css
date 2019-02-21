@@ -210,3 +210,45 @@ div#post_news {
 .news-moreToSee:visited {
   color: blue;
 }
+
+/* メンバー */
+.member-grade {
+  list-style-type: square;
+  margin-top: 30px;
+  margin-bottom: 7px;
+}
+
+.member-name {
+  list-style-type: none;
+  background: purple;
+  color: white;
+  font-weight: bolder;
+  width: 320px;
+  height: 35px;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.member-college {
+  list-style-type: none;
+  text-align: center;
+  width: 320px;
+  font-size: 13px;
+  padding-top: 7px;
+}
+
+.member-post {
+  list-style-type: none;
+  text-align: center;
+  width: 320px;
+  font-size: 13px;
+  font-weight: bolder;
+  padding-top: 7px;
+  color: purple;
+}
+
+.member-content {
+  width: 318px;
+  margin-bottom: 15px;
+  border: solid 1px #999999;
+}

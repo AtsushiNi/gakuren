@@ -1,0 +1,45 @@
+<ul>
+  <li class="member-grade">4回生</li>
+  <% @members.each do |member| %>
+  <% if grade(member.addmission_year) === 4 %>
+  <li class="member-name"><%= member.name %></li>
+  <div class="member-content">
+    <li class="member-college"><%= member.college + " " + grade(member.addmission_year).to_s + "回生"%></li>
+    <li class="member-post"><%= "役職：" + member.post if member.post %></li>
+  </div>
+  <% end %>
+  <% end %>
+
+  <li class="member-grade">3回生</li>
+  <% @members.each do |member| %>
+  <% if grade(member.addmission_year) === 3 %>
+  <li class="member-name"><%= member.name %></li>
+  <div class="member-content">
+    <li class="member-college"><%= member.college + " " + grade(member.addmission_year).to_s + "回生"%></li>
+    <li class="member-post"><%= "役職：" + member.post if member.post %></li>
+  </div>
+  <% end %>
+  <% end %>
+
+  <li class="member-grade">2回生</li>
+  <% @members.each do |member| %>
+  <% if grade(member.addmission_year) === 2 %>
+  <li class="member-name"><%= member.name %></li>
+  <div class="member-content">
+    <li class="member-college"><%= member.college + " " + grade(member.addmission_year).to_s + "回生"%></li>
+    <li class="member-post"><%= "役職：" + member.post if member.post %></li>
+  </div>
+  <% end %>
+  <% end %>
+
+  <li class="member-grade">1回生</li>
+  <% @members.each do |member| %>
+  <% if grade(member.addmission_year) === 1 %>
+  <li class="member-name"><%= member.name %></li>
+  <div class="member-content">
+    <li class="member-college"><%= member.college + " " + grade(member.addmission_year).to_s + "回生"%></li>
+    <li class="member-post"><%= "役職：" + member.post if member.post %></li>
+  </div>
+  <% end %>
+  <% end %>
+</ul>

@@ -12,6 +12,7 @@ class MemberDashboard < Administrate::BaseDashboard
     name: Field::String,
     email: Field::String,
     password_digest: Field::String,
+    password: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     addmission_year: Field::Number,
@@ -39,7 +40,6 @@ class MemberDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
-    :password_digest,
     :created_at,
     :updated_at,
     :addmission_year,
@@ -53,10 +53,10 @@ class MemberDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :email,
-    :password_digest,
     :addmission_year,
     :college,
     :post,
+    :password
   ].freeze
 
   # Overwrite this method to customize how members are displayed

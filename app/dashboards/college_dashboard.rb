@@ -12,6 +12,7 @@ class CollegeDashboard < Administrate::BaseDashboard
     name: Field::String,
     email: Field::String,
     password_digest: Field::String,
+    password: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -33,7 +34,6 @@ class CollegeDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
-    :password_digest,
     :created_at,
     :updated_at,
   ].freeze
@@ -44,7 +44,7 @@ class CollegeDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :email,
-    :password_digest,
+    :password,
   ].freeze
 
   # Overwrite this method to customize how colleges are displayed

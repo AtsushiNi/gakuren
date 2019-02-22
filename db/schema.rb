@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_21_222107) do
+ActiveRecord::Schema.define(version: 2019_02_22_025930) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 2019_02_21_222107) do
   end
 
   create_table "roots", force: :cascade do |t|
-    t.string "name"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
 end

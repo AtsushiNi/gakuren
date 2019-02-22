@@ -15,3 +15,6 @@ Member.create(name: "樋口　さち", email: "sati@gmail.com", addmission_year:
 
 # 大学アカウント
 College.create(name: "京都大学", email: "kyoto@gmail.com", password: "kyoto")
+
+# 管理者アカウント
+Root.create(name: "root", email: "gakuren@gmail.com", password: "gakuren")

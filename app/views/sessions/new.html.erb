@@ -1,0 +1,13 @@
+<%= render 'shared/flash' %>
+<h1 class="login">ログイン</h1>
+
+<div>
+  <%= form_for(:session, url: login_path) do |f| %>
+  <ul class="login">
+    <li class="login"><%= f.text_field :name, placeholder: "アカウント名", class: "login-form" %></li>
+    <li class="login"><%= f.password_field :password, placeholder: "パスワード", class: "login-form" %></li>
+
+    <li class="login"><%= f.submit "ログイン", class: "login-submit" %></li>
+  </ul>
+  <% end %>
+</div>

@@ -1,3 +1,4 @@
 <% field.to_s.each do |pdf| %>
-<%= pdf %></br>
+<%= link_to pdf, "http://192.168.33.11:3000/" + pdf[/uploads.*/] %></br>
+<% p "http://192.168.33.11:3000" + pdf[/uploads.*/] %>
 <% end %>

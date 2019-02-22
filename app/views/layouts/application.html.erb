@@ -20,8 +20,9 @@
         <li><%= link_to "試合結果 |", "#" %></li>
         <li><%= link_to "ライブスコア |", "#" %></li>
         <li><%= link_to "大学紹介 |", colleges_path %></li>
-        <li><%= link_to "メンバー |", members_path %></li>
-        <li><%= link_to "ログイン", login_path %></li>
+        <li><%= link_to "メンバー ", members_path %></li>
+        <li><%= link_to("| ログイン", login_path) if !logged_in? %></li>
+        <li><%= link_to("| 管理者ページ", "/admin") if logged_in? %></li>
       </ol>
     </div>
   </header>

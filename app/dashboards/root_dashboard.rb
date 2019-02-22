@@ -11,6 +11,7 @@ class RootDashboard < Administrate::BaseDashboard
     id: Field::Number,
     email: Field::String,
     password_digest: Field::String,
+    password: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     name: Field::String,
@@ -24,7 +25,6 @@ class RootDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :email,
-    :password_digest,
     :created_at,
   ].freeze
 
@@ -33,7 +33,6 @@ class RootDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :email,
-    :password_digest,
     :created_at,
     :updated_at,
     :name,
@@ -44,7 +43,7 @@ class RootDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :email,
-    :password_digest,
+    :password,
     :name,
   ].freeze
 

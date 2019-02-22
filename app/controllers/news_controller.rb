@@ -3,20 +3,20 @@ class NewsController < ApplicationController
     @news = News.where(visible: true)
   end
 
-  def new
-    @each_news = News.new
-  end
-
-  def create
-    @each_news = News.create(news_params)
-    if @each_news.save
-      flash[:success] = "New news was created!"
-      redirect_to news_index_path
-    else
-      flash.now[:danger] = "Failed to create a news!!"
-      render new_news_path
-    end
-  end
+  # def new
+  #   @each_news = News.new
+  # end
+  #
+  # def create
+  #   @each_news = News.create(news_params)
+  #   if @each_news.save
+  #     flash[:success] = "New news was created!"
+  #     redirect_to news_index_path
+  #   else
+  #     flash.now[:danger] = "Failed to create a news!!"
+  #     render new_news_path
+  #   end
+  # end
 
   def destroy
     @each_news = News.find(params[:id])

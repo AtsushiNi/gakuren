@@ -55,4 +55,5 @@ class NewsDashboard < Administrate::BaseDashboard
   # def display_resource(news)
   #   "News ##{news.id}"
   # end
+
 end

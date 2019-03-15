@@ -10,7 +10,11 @@ module Admin
 
     def authenticate_admin
       # TODO Add authentication logic here.
-      if session[:root] == false then
+      logged_in_root
+    end
+
+    def logged_in_root
+      if session[:root] == false
         redirect_to login_path
       end
     end
@@ -21,4 +25,5 @@ module Admin
     #   params[:per_page] || 20
     # end
   end
+
 end

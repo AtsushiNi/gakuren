@@ -21,8 +21,15 @@
         <li><%= link_to "ライブスコア |", "#" %></li>
         <li><%= link_to "大学紹介 |", colleges_path %></li>
         <li><%= link_to "メンバー ", members_path %></li>
-        <li><%= link_to("| ログイン", login_path) if !logged_in? %></li>
-        <li><%= link_to("| 管理者ページ", "/admin") if logged_in? %></li>
+        <% if logged_in_root? %>
+        <li><%= link_to("| 管理者ページ", "/admin") %></li>
+        <li><%= link_to("| ログアウト", logout_path, method: :delete) %></li>
+        <% elsif logged_in_college? %>
+        <li><%= link_to("| 大学ページ", current_college) %></li>
+        <li><%= link_to("| ログアウト", logout_path, method: :delete) %></li>
+        <% else %>
+        <li><%= link_to("| ログイン", login_path) %></li>
+        <% end %>
       </ol>
     </div>
   </header>

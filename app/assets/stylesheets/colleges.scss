@@ -1,3 +1,55 @@
 // Place all the styles related to the colleges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+li.index-league {
+  list-style-type: none;
+  width: 70%;
+  font-size: 25px;
+  font-weight: bold;
+  border: solid 5px purple;
+  padding: 12px;
+  margin-top: 50px;
+}
+
+li.index-college {
+  background-color: purple;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  list-style-type: none;
+  width: 69%;
+  margin: 20px;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+table.index-contents {
+  text-align: left;
+  width: 69.8%;
+  border: solid 1px gray;
+  margin-left: 20px;
+  padding-left: 25px;
+  padding-top: 7px;
+  th {
+    width: 90px;
+    padding-bottom: 4px;
+  }
+}
+
+li.index-men_women {
+  text-indent: -1em;
+  margin-left: 1em;
+  margin-top: 50px;
+  font-size: 30px;
+}
+li.index-men_women:before {
+    content: '';
+    display: inline-block;
+    width: .5em;
+    height: .5em;
+    margin-right: .5em;
+    background: purple;
+    transform: rotate(45deg);
+    vertical-align: 2px;
+}

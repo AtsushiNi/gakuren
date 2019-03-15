@@ -1,5 +1,40 @@
 <ul>
-  <% @colleges.each do |college| %>
-  <li><%= college.name %></li>
+  <li class="index-men_women">男子部</li>
+  <% 5.times do |league| %>
+  <% league = league + 1 %>
+  <li class="index-league"><%= league.to_s + "部リーグ校"%></li>
+  <div>
+    <% @colleges.each do |college| %>
+    <% if college.league == league && college.men == true %>
+    <li class="index-college"><%= college.name %></li>
+    <table class="index-contents">
+      <tr><th>部員数</th><td><%= college.players_num %></td></tr>
+      <tr><th>都道府県</th><td><%= college.prefecture %></td></tr>
+      <tr><th>主将</th><td><%= college.captain %></td></tr>
+      <tr><th>主務</th><td><%= college.competent %></td></tr>
+    </table>
+    <% end %>
+    <% end %>
+  </div>
+  <% end %>
+</ul>
+<ul>
+  <li class="index-men_women">女子部</li>
+  <% 5.times do |league| %>
+  <% league = league + 1 %>
+  <li class="index-league"><%= league.to_s + "部リーグ校"%></li>
+  <div>
+    <% @colleges.each do |college| %>
+    <% if college.league == league && college.men == false %>
+    <li class="index-college"><%= college.name %></li>
+    <table class="index-contents">
+      <tr><th>部員数</th><td><%= college.players_num %></td></tr>
+      <tr><th>都道府県</th><td><%= college.prefecture %></td></tr>
+      <tr><th>主将</th><td><%= college.captain %></td></tr>
+      <tr><th>主務</th><td><%= college.competent %></td></tr>
+    </table>
+    <% end %>
+    <% end %>
+  </div>
   <% end %>
 </ul>

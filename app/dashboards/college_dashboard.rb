@@ -10,7 +10,13 @@ class CollegeDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
+    men: Field::Boolean,
+    league: Field::Number,
+    players_num: Field::Number,
     email: Field::String,
+    captain: Field::String,
+    competent: Field::String,
+    prefecture: Field::String,
     password_digest: Field::String,
     password: Field::String,
     created_at: Field::DateTime,
@@ -23,8 +29,10 @@ class CollegeDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :id,
     :name,
+    :men,
+    :league,
+    :prefecture,
     :email
   ].freeze
 
@@ -33,7 +41,13 @@ class CollegeDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :name,
+    :men,
+    :league,
+    :players_num,
     :email,
+    :captain,
+    :competent,
+    :prefecture,
     :created_at,
     :updated_at,
   ].freeze
@@ -43,7 +57,13 @@ class CollegeDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :name,
+    :men,
+    :league,
+    :players_num,
     :email,
+    :captain,
+    :competent,
+    :prefecture,
     :password,
   ].freeze
 

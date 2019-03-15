@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       college = College.find_by(name: params[:session][:name])
       if college && college.authenticate(params[:session][:password])
         log_in_college(college)
-        redirect_to college
+        redirect_to competent_path(college)
       else
         flash.now[:danger] = "Invalid name/password combination"
         render action: "new"

@@ -13,4 +13,5 @@ delete '/logout', to: 'sessions#destroy'
 resources :news
 resources :members
 resources :colleges
+get 'colleges/:id/competent', to: 'colleges#competent', as: :competent
 end

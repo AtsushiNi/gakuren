@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_054430) do
+ActiveRecord::Schema.define(version: 2019_03_15_225241) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 2019_03_15_054430) do
     t.string "competent"
     t.string "prefecture"
     t.boolean "men"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "singles_tournament_id"
+    t.integer "young"
+    t.integer "old"
+    t.integer "winner_num"
+    t.integer "score"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["singles_tournament_id"], name: "index_matches_on_singles_tournament_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -51,6 +63,23 @@ ActiveRecord::Schema.define(version: 2019_03_15_054430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+  end
+
+  create_table "singles_players", force: :cascade do |t|
+    t.string "name"
+    t.string "college"
+    t.integer "number"
+    t.integer "singles_tournament_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["singles_tournament_id"], name: "index_singles_players_on_singles_tournament_id"
+  end
+
+  create_table "singles_tournaments", force: :cascade do |t|
+    t.string "name"
+    t.integer "draw"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

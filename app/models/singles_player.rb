@@ -1,0 +1,2 @@
+class SinglesPlayer < ApplicationRecord
+end

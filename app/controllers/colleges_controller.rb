@@ -3,7 +3,11 @@ class CollegesController < ApplicationController
     @colleges = College.all
   end
 
-  def competent
+  def competent_edit
+    @college = College.find(params[:id])
+  end
+
+  def competent_entry
     @college = College.find(params[:id])
   end
 end

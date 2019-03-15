@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* 大学一覧ページ */
+
 li.index-league {
   list-style-type: none;
   width: 70%;
@@ -44,12 +46,28 @@ li.index-men_women {
   font-size: 30px;
 }
 li.index-men_women:before {
-    content: '';
-    display: inline-block;
-    width: .5em;
-    height: .5em;
-    margin-right: .5em;
-    background: purple;
-    transform: rotate(45deg);
-    vertical-align: 2px;
+  content: '';
+  display: inline-block;
+  width: .5em;
+  height: .5em;
+  margin-right: .5em;
+  background: purple;
+  transform: rotate(45deg);
+  vertical-align: 2px;
+}
+
+
+
+/* 主務ページ */
+
+ul.competent-navi {
+  height: 100%;
+  width: 300px;
+  margin: 30px;
+  list-style-type: none;
+}
+
+div.competent-main {
+  border: solid 1px black;
+  margin: 30px;
 }

@@ -59,15 +59,91 @@ li.index-men_women:before {
 
 
 /* 主務ページ */
+div.competent-page {
+  display: flex;
+  background-color: #EEEEEE;
+}
 
 ul.competent-navi {
   height: 100%;
-  width: 300px;
+  width: 250px;
   margin: 30px;
+  margin-right: 0;
+  padding-left: 0;
   list-style-type: none;
+  li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 div.competent-main {
-  border: solid 1px black;
+  border: solid 0.1px silver;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 5px;
   margin: 30px;
+  background-color: white;
+  color: black;
+  width: 80%
+}
+
+a.competent-list-link {
+  display: block;
+  width: 60%;
+  color: black;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 8px;
+  font-family: "Yu Gothic UI";
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: mix(black, #EEEEEE, 5%);
+    border-radius: 5px;
+  }
+}
+a.competent-current {
+  display: block;
+  width: 60%;
+  color: black;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 8px;
+  font-family: "Yu Gothic UI";
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: mix(black, #EEEEEE, 5%);
+    border-radius: 5px;
+  }
+}
+
+h2.competent-main {
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 40px 0px 20px 30px;
+  border-bottom: solid 1px silver;
+}
+
+th.competent-edit {
+  color: silver;
+  font-weight: normal;
+  text-align: right;
+  padding: 20px 40px 20px 20px;
+}
+
+.input {
+  padding: 8px;
+  border: solid 1px silver;
+  border-radius: 2px;
+}
+
+.button {
+  color: white;
+  background-color: royalblue;
+  border-radius: 3px;
+  border: 0;
+  margin-bottom: 50px;
+  padding: 10px 30px 10px 30px;
 }

@@ -94,13 +94,16 @@ footer span {
   line-height: 1;
 }
 
-/* body */
-h2 {
+h2.home {
   color: purple;
   margin-top: 50px;
   margin-bottom: 0px;
   margin-left: 10px;
 }
+
+
+
+/* body */
 
 h4 {
   margin-top: 0px;
@@ -132,6 +135,13 @@ h4 {
   font-weight: bold;
 }
 /* 最新情報 */
+
+h2.news-index {
+  color: purple;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
 
 a.new_news {
   float: right;

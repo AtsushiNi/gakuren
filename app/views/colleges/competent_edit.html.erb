@@ -1,8 +1,47 @@
-<div style="display: flex;">
+<div class="competent-page">
   <%= render partial: 'competent_navi' %>
 
   <div class="competent-main">
-    <p><%= @college.name %></p>
-    基礎情報編集ページ
+    <h2 class="competent-main">大学情報編集</h2>
+    <%= form_for @college do |f| %>
+    <table>
+      <tr>
+        <th class="competent-edit"><%= f.label :name %></th>
+        <td><%= @college.name %></td>
+      </tr>
+      <tr>
+        <th class="competent-edit"><%= f.label :men %></th>
+        <td><%= @college.men %></td>
+      </tr>
+      <tr>
+        <th class="competent-edit"><%= f.label :league %></th>
+        <td><%= @college.league %></td>
+      </tr>
+      <tr>
+        <th class="competent-edit"><%= f.label :players_num %></th>
+        <td><%= f.number_field :players_num, class: "input" %></td>
+      </tr>
+      <tr>
+        <th class="competent-edit"><%= f.label :email %></th>
+        <td><%= f.email_field :email, class: "input" %></td>
+      </tr>
+      <tr>
+        <th class="competent-edit"><%= f.label :captain %></th>
+        <td><%= f.text_field :captain, class: "input" %></td>
+      </tr>
+      <tr>
+        <th class="competent-edit"><%= f.label :competent %></th>
+        <td><%= f.text_field :competent, class: "input" %></td>
+      </tr>
+      <tr>
+        <th class="competent-edit"><%= f.label :prefecture %></th>
+        <td><%= @college.prefecture %></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><%= f.submit "変更を確定", class: "button" %></td>
+        </tr>
+    </table>
+    <% end %>
   </div>
 </div>

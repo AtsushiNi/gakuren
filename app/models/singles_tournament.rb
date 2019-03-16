@@ -3,6 +3,7 @@ class SinglesTournament < ApplicationRecord
   has_many :singles_player, dependent: :destroy
 
   def init
+    # matchインスタンスを作成
     i=1
     self.matches.create(parent_id: nil, young: (1..self.draw/2).to_a, old: ((self.draw/2+1)..self.draw).to_a)
     1..7.times do |n|
@@ -14,6 +15,7 @@ class SinglesTournament < ApplicationRecord
         end
       end
     end
+    #初戦のmatchにプレイヤーを登録
   end
 
 end

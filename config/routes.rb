@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'matches/index'
+  get 'matches/edit'
+  get 'matches/update'
 namespace :admin do
   resources :roots
   resources :news

@@ -1,6 +1,8 @@
 class SinglesTournament < ApplicationRecord
   has_many :matches, dependent: :destroy
   has_many :singles_player, dependent: :destroy
+  validates :draw, :numericality => { only_integer: true }
+  validate :draw_validate
 
   def init
     # matchインスタンスを作成
@@ -16,6 +18,14 @@ class SinglesTournament < ApplicationRecord
       end
     end
     #初戦のmatchにプレイヤーを登録
+  end
+
+  private
+
+  def draw_validate
+    if draw != 64 && draw != 128
+      errors.add(:draw, "must be 64 or 128")
+    end
   end
 
 end

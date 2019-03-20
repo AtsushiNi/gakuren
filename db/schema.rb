@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_042618) do
+ActiveRecord::Schema.define(version: 2019_03_20_040558) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_03_16_042618) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "round"
+    t.integer "court"
+    t.integer "turn"
     t.index ["singles_tournament_id"], name: "index_matches_on_singles_tournament_id"
   end
 

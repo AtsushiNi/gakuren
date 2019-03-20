@@ -14,7 +14,6 @@ get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 get '/livescore', to: 'singles_tournament#show'
-get 'matches', to: 'matches#index'
 resources :news
 resources :members
 resources :colleges

@@ -13,8 +13,9 @@ root 'top#home'
 get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
-get '/livescore', to: 'singles_tournament#show'
-get '/mathces', to: 'matches#index'
+get '/livescore', to: 'singles_tournament#show' #ライブスコアページ
+get '/matches', to: 'matches#index' #トーナメント表
+post '/match', to: 'matches#update' #スコアアップデート
 resources :news
 resources :members
 resources :colleges

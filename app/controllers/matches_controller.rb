@@ -8,5 +8,6 @@ class MatchesController < ApplicationController
   end
 
   def update
+    @params = params
   end
 end

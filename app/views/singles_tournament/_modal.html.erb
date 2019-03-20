@@ -1,36 +1,46 @@
 <div id="livescore-overlay"></div>
 
 <div id="livescore-modal">
-  <span style="display: inline-block;width: 240px;margin-top: 100px;"></span>
-  <button class="modal-controlButton">-</button>
-  <button class="modal-controlButton">+</button>
-  <button class="modal-controlButton">-</button>
-  <button class="modal-controlButton">+</button>
-  <button class="modal-controlButton">-</button>
-  <button class="modal-controlButton">+</button>
+  <span style="display: inline-block;width: 260px;margin-top: 100px;"></span>
+  <button class="modal-controlButton" id="00down">-</button>
+  <button class="modal-controlButton" id="00up">+</button>
+  <button class="modal-controlButton" id="01down">-</button>
+  <button class="modal-controlButton" id="01up">+</button>
+  <button class="modal-controlButton" id="02down">-</button>
+  <button class="modal-controlButton" id="02up">+</button>
   <div id="livescore-modal-table"></div>
-  <span style="display: inline-block;width: 240px;height: 10px;"></span>
-  <button class="modal-controlButton">-</button>
-  <button class="modal-controlButton">+</button>
-  <button class="modal-controlButton">-</button>
-  <button class="modal-controlButton">+</button>
-  <button class="modal-controlButton">-</button>
-  <button class="modal-controlButton">+</button><br />
-  <button class="modal-submitButton">更新</button>
+  <span style="display: inline-block;width: 260px;height: 10px;"></span>
+  <button class="modal-controlButton" id="10down">-</button>
+  <button class="modal-controlButton" id="10up">+</button>
+  <button class="modal-controlButton" id="11down">-</button>
+  <button class="modal-controlButton" id="11up">+</button>
+  <button class="modal-controlButton" id="12down">-</button>
+  <button class="modal-controlButton" id="12up">+</button><br />
+  <%= form_tag("/match", method: :post) do %>
+  <%= hidden_field_tag :"00" %>
+  <%= hidden_field_tag :"01" %>
+  <%= hidden_field_tag :"02" %>
+  <%= hidden_field_tag :"10" %>
+  <%= hidden_field_tag :"11" %>
+  <%= hidden_field_tag :"12" %>
+  <%= submit_tag("更新", class: "modal-submitButton") %>
+  <% end %>
 </div>
 
 <script>
   $(".livescore-td").click(function(event) {
-    var tartget = $(event.currentTarget);
+    var target = $(event.currentTarget);
     var score = new Array(2);
     score[0] = new Array(3);
     score[1] = new Array(3);
     for(i=0;i<3;i++){
-      score[0][i]=tartget.get()[0].children[0].children[0].children[0].children[i+1].childNodes[0].data;
-      score[1][i]=tartget.get()[0].children[0].children[0].children[1].children[i+1].childNodes[0].data;
+      score[0][i]=Number(target.get()[0].children[0].children[0].children[0].children[i+1].childNodes[0].data);
+      score[1][i]=Number(target.get()[0].children[0].children[0].children[1].children[i+1].childNodes[0].data);
     }
+
+    display(score, target);
+    updownButtonInit(score,target);
     $("#livescore-overlay, #livescore-modal").fadeIn();
-    $("#livescore-modal-table").html("<table class='modal-match'><tr style='height: 50px;'><td class='modal-player'><span class='livescore-player-num'>"+tartget.get()[0].children[0].children[0].children[0].children[0].children[0].childNodes[0].data+"</span>"+tartget.get()[0].children[0].children[0].children[0].children[0].children[1].childNodes[0].data+tartget.get()[0].children[0].children[0].children[0].children[0].children[2].childNodes[0].data+"</td><td class='modal-score'>"+score[0][0]+"</td><td class='modal-score'>"+score[0][1]+"</td><td class='modal-score'>"+score[0][2]+"</td></tr><tr style='height: 50px;'><td class='modal-player'><span class='livescore-player-num'>"+tartget.get()[0].children[0].children[0].children[1].children[0].children[0].childNodes[0].data+"</span>"+tartget.get()[0].children[0].children[0].children[1].children[0].children[1].childNodes[0].data+tartget.get()[0].children[0].children[0].children[1].children[0].children[2].childNodes[0].data+"</td><td class='modal-score'>"+score[1][0]+"</td><td class='modal-score'>"+score[1][1]+"</td><td class='modal-score'>"+score[1][2]+"</td></tr></table>");
   });
 
   $("#livescore-overlay").click(function() {
@@ -39,6 +49,33 @@
 
   locateCenter();
   $(window).resize(locateCenter)
+
+  // 隠しフィールドの値を設定、modalを表示
+  function display(score, target) {
+    $("#00").val(score[0][0]);
+    $("#01").val(score[0][1]);
+    $("#02").val(score[0][2]);
+    $("#10").val(score[1][0]);
+    $("#11").val(score[1][1]);
+    $("#12").val(score[1][2]);
+    $("#livescore-modal-table").html("<table class='modal-match'><tr style='height: 50px;'><td class='modal-player'><span class='livescore-player-num'>"+target.get()[0].children[0].children[0].children[0].children[0].children[0].childNodes[0].data+"</span>"+target.get()[0].children[0].children[0].children[0].children[0].children[1].childNodes[0].data+target.get()[0].children[0].children[0].children[0].children[0].children[2].childNodes[0].data+"</td><td class='modal-score'>"+score[0][0]+"</td><td class='modal-score'>"+score[0][1]+"</td><td class='modal-score'>"+score[0][2]+"</td></tr><tr style='height: 50px;'><td class='modal-player'><span class='livescore-player-num'>"+target.get()[0].children[0].children[0].children[1].children[0].children[0].childNodes[0].data+"</span>"+target.get()[0].children[0].children[0].children[1].children[0].children[1].childNodes[0].data+target.get()[0].children[0].children[0].children[1].children[0].children[2].childNodes[0].data+"</td><td class='modal-score'>"+score[1][0]+"</td><td class='modal-score'>"+score[1][1]+"</td><td class='modal-score'>"+score[1][2]+"</td></tr></table>");
+  }
+
+  // 点数変更ボタンの動作設定
+  function updownButtonInit(score,target) {
+    $("#00up").click(function(){score[0][0]++;display(score,target);});
+    $("#01up").click(function(){score[0][1]++;display(score,target);});
+    $("#02up").click(function(){score[0][2]++;display(score,target);});
+    $("#10up").click(function(){score[1][0]++;display(score,target);});
+    $("#11up").click(function(){score[1][1]++;display(score,target);});
+    $("#12up").click(function(){score[1][2]++;display(score,target);});
+    $("#00down").click(function(){score[0][0]--;display(score,target);});
+    $("#01down").click(function(){score[0][1]--;display(score,target);});
+    $("#02down").click(function(){score[0][2]--;display(score,target);});
+    $("#10down").click(function(){score[1][0]--;display(score,target);});
+    $("#11down").click(function(){score[1][1]--;display(score,target);});
+    $("#12down").click(function(){score[1][2]--;display(score,target);});
+  }
 
   function locateCenter() {
     let w = $(window).width();

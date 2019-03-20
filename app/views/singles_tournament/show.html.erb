@@ -11,7 +11,7 @@
   <tr>
     <% some_courts.each do |court| %>
     <% if (match = @tournament.matches.find_by(turn: 1, court: court)) %>
-    <%= render partial: "livescore-match", locals: {match: match} %>
+    <td class="livescore-td"><%= render partial: "livescore-match", locals: {match: match} %></td>
     <% else %>
     <td></td>
     <% end %>
@@ -20,7 +20,7 @@
   <tr>
     <% some_courts.each do |court| %>
     <% if (match = @tournament.matches.find_by(turn: 2, court: court)) %>
-    <%= render partial: "livescore-match", locals: {match: match} %>
+    <td class="livescore-td"><%= render partial: "livescore-match", locals: {match: match} %></td>
     <% else %>
     <td></td>
     <% end %>
@@ -29,7 +29,7 @@
   <tr>
     <% some_courts.each do |court| %>
     <% if (match = @tournament.matches.find_by(turn: 3, court: court)) %>
-    <%= render partial: "livescore-match", locals: {match: match} %>
+    <td class="livescore-td"><%= render partial: "livescore-match", locals: {match: match} %></td>
     <% else %>
     <td></td>
     <% end %>
@@ -38,7 +38,7 @@
   <tr>
     <% some_courts.each do |court| %>
     <% if (match = @tournament.matches.find_by(turn: 4, court: court)) %>
-    <%= render partial: "livescore-match", locals: {match: match} %>
+    <td class="livescore-td"><%= render partial: "livescore-match", locals: {match: match} %></td>
     <td></td>
     <% else %>
     <% end %>
@@ -46,3 +46,36 @@
   </tr>
 </table>
 <% end %>
+
+
+<div id="livescore-overlay"></div>
+
+
+<div id="livescore-modal">
+  <%= render partial: "livescore-match", locals: {match: @tournament.matches.find(33)} %>
+</div>
+
+<script>
+  $(".livescore-td").click(function() {
+    $("#livescore-overlay, #livescore-modal").fadeIn();
+  });
+
+  $("#livescore-overlay").click(function() {
+    $("#livescore-overlay, #livescore-modal").fadeOut();
+  });
+
+  locateCenter();
+  $(window).resize(locateCenter)
+
+  function locateCenter() {
+    let w = $(window).width();
+    let h = $(window).height();
+    let cw = $("#livescore-modal").outerWidth();
+    let ch = $("#livescore-modal").outerHeight();
+
+    $("#livescore-modal").css({
+      "left": ( (w-cw)/2 )+"px",
+      "top": ( (h-ch)/2 )+"px"
+    });
+  }
+</script>

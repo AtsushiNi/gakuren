@@ -23,3 +23,26 @@ span.livescore-player-num {
   display: inline-block;
   width: 25px;
 }
+
+div#livescore-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 1;
+}
+
+div#livescore-modal {
+  width: 350px;
+  height: 150px;
+  position: fixed;
+  border: solid 0.1px silver;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  background-color: white;
+  display: none;
+  z-index: 2;
+}

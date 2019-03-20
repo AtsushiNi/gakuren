@@ -1,7 +1,6 @@
 <% young_player = @tournament.singles_players.find_by(number: match.young) %>
 <% old_player = @tournament.singles_players.find_by(number: match.old) %>
 <% score = match.get_score %>
-<td>
   <table class="livescore-match">
     <tr>
       <td class="livescore-player">
@@ -32,4 +31,3 @@
       </td>
     </tr>
   </table>
-</td>

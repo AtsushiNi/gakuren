@@ -1,33 +1,35 @@
+<% if (match = @tournament.matches.find_by( turn: turn, court: court)) %>
 <% young_player = @tournament.singles_players.find_by(number: match.young) %>
 <% old_player = @tournament.singles_players.find_by(number: match.old) %>
 <% score = match.get_score %>
-  <table class="livescore-match">
-    <tr>
-      <td class="livescore-player">
-        <span class="livescore-player-num"><%= match.young %></span><%= young_player.name %>(<%= young_player.college %>)
-      </td>
-      <td class="livescore-score">
-        <%= score[0][0] if score[0][0] %>
-      </td>
-      <td class="livescore-score">
-        <%= score[1][0] if score[1][0] %>
-      </td>
-      <td class="livescore-score">
-        <%= score[2][0] if score[2][0] %>
-      </td>
-    </tr>
-    <tr>
-      <td class="livescore-player">
-        <span class="livescore-player-num"><%= match.old %></span><%= old_player.name %>(<%= old_player.college %>)
-      </td>
-      <td class="livescore-score">
-        <%= score[0][1] if score[0][1] %>
-      </td>
-      <td class="livescore-score">
-        <%= score[1][1] if score[1][1] %>
-      </td>
-      <td class="livescore-score">
-        <%= score[2][1] if score[2][1] %>
-      </td>
-    </tr>
-  </table>
+<table class='livescore-match'>
+  <tr>
+    <td class='livescore-player'>
+      <span class='livescore-player-num'><%= match.young %></span><span><%= young_player.name %></span><span>(<%= young_player.college %>)</span>
+    </td>
+    <td class="livescore-score">
+      <%= score[0][0] if score[0][0] %>
+    </td>
+    <td class="livescore-score">
+      <%= score[1][0] if score[1][0] %>
+    </td>
+    <td class="livescore-score">
+      <%= score[2][0] if score[2][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td class="livescore-player">
+      <span class='livescore-player-num'><%= match.young %></span><span><%= young_player.name %></span><span>(<%= young_player.college %>)</span>
+    </td>
+    <td class="livescore-score">
+      <%= score[0][1] if score[0][1] %>
+    </td>
+    <td class="livescore-score">
+      <%= score[1][1] if score[1][1] %>
+    </td>
+    <td class="livescore-score">
+      <%= score[2][1] if score[2][1] %>
+    </td>
+  </tr>
+</table>
+<% end %>

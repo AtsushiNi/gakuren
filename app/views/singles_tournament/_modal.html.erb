@@ -1,0 +1,37 @@
+<div id="livescore-overlay"></div>
+
+<div id="livescore-modal"></div>
+
+<script>
+  $(".livescore-td").click(function(event) {
+    var tartget = $(event.currentTarget);
+    var score = new Array(2);
+    score[0] = new Array(3);
+    score[1] = new Array(3);
+    for(i=0;i<3;i++){
+      score[0][i]=tartget.get()[0].children[0].children[0].children[0].children[i+1].childNodes[0].data;
+      score[1][i]=tartget.get()[0].children[0].children[0].children[1].children[i+1].childNodes[0].data;
+    }
+    $("#livescore-overlay, #livescore-modal").fadeIn();
+    $("#livescore-modal").html("<table class='livescore-match'><tr><td class='livescore-player'><span class='livescore-player-num'>"+tartget.get()[0].children[0].children[0].children[0].children[0].children[0].childNodes[0].data+"</span>"+tartget.get()[0].children[0].children[0].children[0].children[0].children[1].childNodes[0].data+tartget.get()[0].children[0].children[0].children[0].children[0].children[2].childNodes[0].data+"</td><td class='livescore-score'>"+score[0][0]+"</td><td class='livescore-score'>"+score[0][1]+"</td><td class='livescore-score'>"+score[0][2]+"</td></tr><tr><td class='livescore-player'><span class='livescore-player-num'>"+tartget.get()[0].children[0].children[0].children[1].children[0].children[0].childNodes[0].data+"</span>"+tartget.get()[0].children[0].children[0].children[1].children[0].children[1].childNodes[0].data+tartget.get()[0].children[0].children[0].children[1].children[0].children[2].childNodes[0].data+"</td><td class='livescore-score'>"+score[1][0]+"</td><td class='livescore-score'>"+score[1][1]+"</td><td class='livescore-score'>"+score[1][2]+"</td></tr></table>");
+  });
+
+  $("#livescore-overlay").click(function() {
+    $("#livescore-overlay, #livescore-modal").fadeOut();
+  });
+
+  locateCenter();
+  $(window).resize(locateCenter)
+
+  function locateCenter() {
+    let w = $(window).width();
+    let h = $(window).height();
+    let cw = $("#livescore-modal").outerWidth();
+    let ch = $("#livescore-modal").outerHeight();
+
+    $("#livescore-modal").css({
+      "left": ( (w-cw)/2 )+"px",
+      "top": ( (h-ch)/2 )+"px"
+    });
+  }
+</script>

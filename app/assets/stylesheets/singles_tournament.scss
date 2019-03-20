@@ -36,8 +36,8 @@ div#livescore-overlay {
 }
 
 div#livescore-modal {
-  width: 350px;
-  height: 150px;
+  width: 550px;
+  height: 350px;
   position: fixed;
   border: solid 0.1px silver;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -45,4 +45,8 @@ div#livescore-modal {
   background-color: white;
   display: none;
   z-index: 2;
+  table {
+    width: 400px;
+    height: 170px;
+  }
 }

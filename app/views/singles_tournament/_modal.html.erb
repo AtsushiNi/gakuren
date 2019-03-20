@@ -1,6 +1,23 @@
 <div id="livescore-overlay"></div>
 
-<div id="livescore-modal"></div>
+<div id="livescore-modal">
+  <span style="display: inline-block;width: 240px;margin-top: 100px;"></span>
+  <button class="modal-controlButton">-</button>
+  <button class="modal-controlButton">+</button>
+  <button class="modal-controlButton">-</button>
+  <button class="modal-controlButton">+</button>
+  <button class="modal-controlButton">-</button>
+  <button class="modal-controlButton">+</button>
+  <div id="livescore-modal-table"></div>
+  <span style="display: inline-block;width: 240px;height: 10px;"></span>
+  <button class="modal-controlButton">-</button>
+  <button class="modal-controlButton">+</button>
+  <button class="modal-controlButton">-</button>
+  <button class="modal-controlButton">+</button>
+  <button class="modal-controlButton">-</button>
+  <button class="modal-controlButton">+</button><br />
+  <button class="modal-submitButton">更新</button>
+</div>
 
 <script>
   $(".livescore-td").click(function(event) {
@@ -13,7 +30,7 @@
       score[1][i]=tartget.get()[0].children[0].children[0].children[1].children[i+1].childNodes[0].data;
     }
     $("#livescore-overlay, #livescore-modal").fadeIn();
-    $("#livescore-modal").html("<table class='livescore-match'><tr><td class='livescore-player'><span class='livescore-player-num'>"+tartget.get()[0].children[0].children[0].children[0].children[0].children[0].childNodes[0].data+"</span>"+tartget.get()[0].children[0].children[0].children[0].children[0].children[1].childNodes[0].data+tartget.get()[0].children[0].children[0].children[0].children[0].children[2].childNodes[0].data+"</td><td class='livescore-score'>"+score[0][0]+"</td><td class='livescore-score'>"+score[0][1]+"</td><td class='livescore-score'>"+score[0][2]+"</td></tr><tr><td class='livescore-player'><span class='livescore-player-num'>"+tartget.get()[0].children[0].children[0].children[1].children[0].children[0].childNodes[0].data+"</span>"+tartget.get()[0].children[0].children[0].children[1].children[0].children[1].childNodes[0].data+tartget.get()[0].children[0].children[0].children[1].children[0].children[2].childNodes[0].data+"</td><td class='livescore-score'>"+score[1][0]+"</td><td class='livescore-score'>"+score[1][1]+"</td><td class='livescore-score'>"+score[1][2]+"</td></tr></table>");
+    $("#livescore-modal-table").html("<table class='modal-match'><tr style='height: 50px;'><td class='modal-player'><span class='livescore-player-num'>"+tartget.get()[0].children[0].children[0].children[0].children[0].children[0].childNodes[0].data+"</span>"+tartget.get()[0].children[0].children[0].children[0].children[0].children[1].childNodes[0].data+tartget.get()[0].children[0].children[0].children[0].children[0].children[2].childNodes[0].data+"</td><td class='modal-score'>"+score[0][0]+"</td><td class='modal-score'>"+score[0][1]+"</td><td class='modal-score'>"+score[0][2]+"</td></tr><tr style='height: 50px;'><td class='modal-player'><span class='livescore-player-num'>"+tartget.get()[0].children[0].children[0].children[1].children[0].children[0].childNodes[0].data+"</span>"+tartget.get()[0].children[0].children[0].children[1].children[0].children[1].childNodes[0].data+tartget.get()[0].children[0].children[0].children[1].children[0].children[2].childNodes[0].data+"</td><td class='modal-score'>"+score[1][0]+"</td><td class='modal-score'>"+score[1][1]+"</td><td class='modal-score'>"+score[1][2]+"</td></tr></table>");
   });
 
   $("#livescore-overlay").click(function() {

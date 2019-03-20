@@ -45,8 +45,46 @@ div#livescore-modal {
   background-color: white;
   display: none;
   z-index: 2;
-  table {
-    width: 400px;
-    height: 170px;
-  }
+}
+
+table.modal-match {
+  border-collapse: collapse;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+td.modal-player {
+  border: solid 1px silver;
+  font-size: 12px;
+  width: 240px;
+}
+
+td.modal-score {
+  border: solid 1px silver;
+  width: 80px;
+  text-align:center;
+}
+
+button.modal-controlButton {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  background-color: royalblue;
+  color: white;
+  font-weight: bold;
+}
+
+button.modal-submitButton {
+  color: white;
+  background-color: royalblue;
+  border-radius: 3px;
+  border: 0;
+  margin-bottom: 50px;
+  padding: 10px 30px 10px 30px;
+  margin: 40px 20px 50px 420px;
 }

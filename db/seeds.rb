@@ -39,9 +39,9 @@ end
   tournament.singles_players.create(name: "BYE", number: number + 1)
 end
 tournament.init
-Match.find(33).update_attributes(turn: 1, court: 1)
-Match.find(34).update_attributes(turn: 1, court: 2)
-Match.find(37).update_attributes(turn: 1, court: 3)
+Match.find(33).update_attributes(turn: 1, court: 1, score: "4-6set-set-")
+Match.find(34).update_attributes(turn: 1, court: 2, score: "4-6set3-6set-")
+Match.find(37).update_attributes(turn: 1, court: 3, score: "4-6set6-4set10-3")
 Match.find(38).update_attributes(turn: 1, court: 4)
 Match.find(41).update_attributes(turn: 1, court: 5)
 Match.find(42).update_attributes(turn: 1, court: 6)

@@ -1,5 +1,6 @@
 <% young_player = @tournament.singles_players.find_by(number: match.young) %>
 <% old_player = @tournament.singles_players.find_by(number: match.old) %>
+<% score = match.get_score %>
 <td>
   <table class="livescore-match">
     <tr>
@@ -7,13 +8,13 @@
         <span class="livescore-player-num"><%= match.young %></span><%= young_player.name %>(<%= young_player.college %>)
       </td>
       <td class="livescore-score">
-        0
+        <%= score[0][0] if score[0][0] %>
       </td>
       <td class="livescore-score">
-        0
+        <%= score[1][0] if score[1][0] %>
       </td>
       <td class="livescore-score">
-        0
+        <%= score[2][0] if score[2][0] %>
       </td>
     </tr>
     <tr>
@@ -21,13 +22,13 @@
         <span class="livescore-player-num"><%= match.old %></span><%= old_player.name %>(<%= old_player.college %>)
       </td>
       <td class="livescore-score">
-        0
+        <%= score[0][1] if score[0][1] %>
       </td>
       <td class="livescore-score">
-        0
+        <%= score[1][1] if score[1][1] %>
       </td>
       <td class="livescore-score">
-        0
+        <%= score[2][1] if score[2][1] %>
       </td>
     </tr>
   </table>

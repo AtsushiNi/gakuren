@@ -32,9 +32,44 @@ Root.create(name: "root", email: "gakuren@gmail.com", password: "gakuren")
 
 # シングルス大会
 tournament = SinglesTournament.create(name: "平成31年度春関男子シングルス", draw: 128, courts: "0102030405061011")
-[0,2,3,4,7,8,11,12,13,15,16,18,19,20,23,24,27,28,29,31,32,34,35,36,39,40,43,44,45,47,48,50,51,52,55,56,59,60,61,63,64,66,67,68,71,72,75,76,77,79,80,82,83,84,87,88,91,92,93,95,96,98,99,100,103,104,107,108,109,111,112,114,115,116,119,120,123,124,125,127].map do |number|
+
+[0,15,16,31,32,47,48,52,55,56,59,63,64,68,71,72,75,79,80,82,83,84,87,88,91,92,93,95,96,98,99,100,103,104,107,108,109,111,112,114,115,116,119,120,123,124,125,127].map do |number|
   tournament.singles_players.create(name: "プレイヤー#{number + 1}", college: "大学#{number + 1}", number: number + 1)
 end
+
+tournament.singles_players.create(name: "栗山　拓也", college: "関学大", number: 3)
+tournament.singles_players.create(name: "高橋　直種", college: "立命大", number: 4)
+tournament.singles_players.create(name: "石川　希望", college: "神院大", number: 5)
+tournament.singles_players.create(name: "大野　翼", college: "関　大", number: 8)
+tournament.singles_players.create(name: "矢ノ川　歩", college: "近　大", number: 9)
+tournament.singles_players.create(name: "高村　烈司", college: "関　大", number: 12)
+tournament.singles_players.create(name: "大窪　広海", college: "同　大", number: 13)
+tournament.singles_players.create(name: "高田　直幸", college: "関学大", number: 14)
+tournament.singles_players.create(name: "清水　計都", college: "近　大", number: 19)
+tournament.singles_players.create(name: "中川　雅之", college: "大教大", number: 20)
+tournament.singles_players.create(name: "岡崎　大倭", college: "甲南大", number: 21)
+tournament.singles_players.create(name: "岡田　大樹", college: "近　大", number: 24)
+tournament.singles_players.create(name: "松本　樹", college: "近　大", number:  25)
+tournament.singles_players.create(name: "小林　泰晴", college: "大体大", number: 28)
+tournament.singles_players.create(name: "伊達　祐太朗", college: "同　大", number: 29)
+tournament.singles_players.create(name: "石井　勇気", college: "近　大", number: 30)
+tournament.singles_players.create(name: "安井　優貴", college: "立命大", number: 35)
+tournament.singles_players.create(name: "矢野　駿太郎", college: "近　大", number: 36)
+tournament.singles_players.create(name: "谷口　嘉志", college: "近　大", number: 37)
+tournament.singles_players.create(name: "福嶋　航大", college: "甲南大", number: 40)
+tournament.singles_players.create(name: "福本　定也", college: "神院大", number: 41)
+tournament.singles_players.create(name: "石島　星歩", college: "同　大", number: 44)
+tournament.singles_players.create(name: "岩村　優友", college: "甲南大", number: 45)
+tournament.singles_players.create(name: "東川　将大", college: "甲南大", number: 46)
+tournament.singles_players.create(name: "合田　健人", college: "近　大", number: 51)
+tournament.singles_players.create(name: "山本　桐生", college: "関学大", number: 52)
+tournament.singles_players.create(name: "曽川　大輔", college: "近　大", number: 61)
+tournament.singles_players.create(name: "福永　太洋", college: "神　大", number: 62)
+tournament.singles_players.create(name: "土田　啓太", college: "関学大", number: 67)
+tournament.singles_players.create(name: "塩井　岳", college: "関　大", number: 68)
+tournament.singles_players.create(name: "深井　圭", college: "関学大", number: 77)
+tournament.singles_players.create(name: "福長　拓真", college: "近　大", number: 78)
+
 [1,5,6,9,10,14,17,21,22,25,26,30,33,37,38,41,42,46,49,53,54,57,58,62,65,69,70,73,74,78,81,85,86,89,90,94,97,101,102,105,106,110,113,117,118,121,122,126].map do |number|
   tournament.singles_players.create(name: "BYE", number: number + 1)
 end

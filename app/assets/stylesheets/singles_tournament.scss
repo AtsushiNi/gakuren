@@ -2,14 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h2.livescore-h2 {
+  border-bottom: 4px solid purple;
+  margin: 30px auto 50px 10px;
+}
+
+table.livescore-courts {
+  margin-bottom: 30px;
+}
+
 table.livescore-match {
   border-collapse: collapse;
   margin: 3px;
+  tr {
+    height: 30px;
+  }
+}
+
+span.livescore-college {
+float: right;
+padding-right: 2px;
+}
+
+span.livescore-player-name {
+  padding-left: 2px;
 }
 
 td.livescore-player {
   border: solid 1px silver;
-  font-size: 12px;
+  font-size: 10px;
   width: 140px;
 }
 
@@ -30,7 +51,7 @@ div#livescore-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.7);
   display: none;
   z-index: 1;
 }
@@ -86,5 +107,5 @@ input.modal-submitButton {
   border: 0;
   margin-bottom: 50px;
   padding: 10px 30px 10px 30px;
-  margin: 40px 20px 50px 420px;
+  margin: 30px 20px 50px 420px;
 }

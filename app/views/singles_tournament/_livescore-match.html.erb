@@ -5,7 +5,7 @@
 <table class='livescore-match'>
   <tr>
     <td class='livescore-player'>
-      <span class='livescore-player-num'><%= match.young %></span><span><%= young_player.name %></span><span>(<%= young_player.college %>)</span>
+      <span class='livescore-player-num'><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-college">(<%= young_player.college %>)</span>
     </td>
     <td class="livescore-score">
       <%= score[0][0] if score[0][0] %>
@@ -19,7 +19,7 @@
   </tr>
   <tr>
     <td class="livescore-player">
-      <span class='livescore-player-num'><%= match.young %></span><span><%= young_player.name %></span><span>(<%= young_player.college %>)</span>
+      <span class='livescore-player-num'><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-college">(<%= old_player.college %>)</span>
     </td>
     <td class="livescore-score">
       <%= score[0][1] if score[0][1] %>
@@ -32,5 +32,5 @@
     </td>
   </tr>
 </table>
-<p style="visibility: hidden"><%= match.id %></p>
+<p style="visibility: hidden;height:1px;"><%= match.id %></p>
 <% end %>

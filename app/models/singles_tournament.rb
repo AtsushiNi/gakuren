@@ -6,18 +6,48 @@ class SinglesTournament < ApplicationRecord
 
   def init
     # matchインスタンスを作成
-    i=1
-    self.matches.create(parent_id: nil, young: (1..self.draw/2).to_a, old: ((self.draw/2+1)..self.draw).to_a)
-    1..7.times do |n|
-      if self.draw >= 2**n
-        2**(n-1).times do
-          self.matches.create(parent_id: i)
-          self.matches.create(parent_id: i)
-          i += 1
+    if self.draw == 64
+      self.match.create(parent_id: nil, round: 6)
+
+      parent_id = 1
+      for round in [5,4,3,2,1] do
+        (2**(5-round)).times do |num|
+        if round != 1
+          self.matches.create(parent_id: parent_id, round: round)
+          self.matches.create(parent_id: parent_id, round: round)
+        else
+          self.matches.create(parent_id: parent_id, round: round, young: num*4+1, old: num*4+2)
+          self.matches.create(parent_id: parent_id, round: round, young: num*4+3, old: num*4+4)
+        end
+          parent_id += 1
+        end
+      end
+    elsif self.draw == 128
+      self.matches.create(parent_id: nil, round: 7)
+
+      parent_id = 1
+      for round in [6,5,4,3,2,1] do
+        (2**(6-round)).times do |num|
+          if round != 1
+          self.matches.create(parent_id: parent_id, round: round)
+          self.matches.create(parent_id: parent_id, round: round)
+        else
+          self.matches.create(parent_id: parent_id, round: round, young: num*4+1, old: num*4+2)
+          self.matches.create(parent_id: parent_id, round: round, young: num*4+3, old: num*4+4)
+        end
+          parent_id += 1
         end
       end
     end
     #初戦のmatchにプレイヤーを登録
+  end
+
+  def a
+    for n in [6,5,4,3,2,1] do
+      (2**(6-n)).times do
+        p n
+      end
+    end
   end
 
   private

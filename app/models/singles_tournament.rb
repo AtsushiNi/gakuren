@@ -1,6 +1,6 @@
 class SinglesTournament < ApplicationRecord
   has_many :matches, dependent: :destroy
-  has_many :singles_player, dependent: :destroy
+  has_many :singles_players, dependent: :destroy
   validates :draw, :numericality => { only_integer: true }
   validate :draw_validate
 
@@ -12,13 +12,13 @@ class SinglesTournament < ApplicationRecord
       parent_id = 1
       for round in [5,4,3,2,1] do
         (2**(5-round)).times do |num|
-        if round != 1
-          self.matches.create(parent_id: parent_id, round: round)
-          self.matches.create(parent_id: parent_id, round: round)
-        else
-          self.matches.create(parent_id: parent_id, round: round, young: num*4+1, old: num*4+2)
-          self.matches.create(parent_id: parent_id, round: round, young: num*4+3, old: num*4+4)
-        end
+          if round != 1
+            self.matches.create(parent_id: parent_id, round: round)
+            self.matches.create(parent_id: parent_id, round: round)
+          else
+            self.matches.create(parent_id: parent_id, round: round, young: num*4+1, old: num*4+2)
+            self.matches.create(parent_id: parent_id, round: round, young: num*4+3, old: num*4+4)
+          end
           parent_id += 1
         end
       end
@@ -29,25 +29,17 @@ class SinglesTournament < ApplicationRecord
       for round in [6,5,4,3,2,1] do
         (2**(6-round)).times do |num|
           if round != 1
-          self.matches.create(parent_id: parent_id, round: round)
-          self.matches.create(parent_id: parent_id, round: round)
-        else
-          self.matches.create(parent_id: parent_id, round: round, young: num*4+1, old: num*4+2)
-          self.matches.create(parent_id: parent_id, round: round, young: num*4+3, old: num*4+4)
-        end
+            self.matches.create(parent_id: parent_id, round: round)
+            self.matches.create(parent_id: parent_id, round: round)
+          else
+            self.matches.create(parent_id: parent_id, round: round, young: num*4+1, old: num*4+2)
+            self.matches.create(parent_id: parent_id, round: round, young: num*4+3, old: num*4+4)
+          end
           parent_id += 1
         end
       end
     end
-    #初戦のmatchにプレイヤーを登録
-  end
-
-  def a
-    for n in [6,5,4,3,2,1] do
-      (2**(6-n)).times do
-        p n
-      end
-    end
+    bye_case
   end
 
   private
@@ -55,6 +47,40 @@ class SinglesTournament < ApplicationRecord
   def draw_validate
     if draw != 64 && draw != 128
       errors.add(:draw, "must be 64 or 128")
+    end
+  end
+
+  #初戦がbyeのときに次戦を登録
+  def bye_case
+    matches = self.matches.where(round: 1)
+    matches.each do |match|
+      if self.singles_players.find_by(number: match.young).name == "BYE" #youngがBYE
+        if next_battle_young?(match)
+          self.matches.find(match.parent_id).update_attributes(young: match.old)
+        else
+          self.matches.find(match.parent_id).update_attributes(old: match.old)
+        end
+      elsif self.singles_players.find_by(number: match.old).name == "BYE" #oldがBYE
+        if next_battle_young?(match)
+          self.matches.find(match.parent_id).update_attributes(young: match.young)
+        else
+          self.matches.find(match.parent_id).update_attributes(old: match.young)
+        end
+      end
+    end
+  end
+
+  # このmatchの勝者が次戦のyoungならtrue,oldならfalse
+  def next_battle_young?(match)
+    young = self.matches.where(parent_id: match.parent_id).order(id: "ASC").first
+    p young.id
+    if match.id == young.id
+      true
+    elsif match.id - 1 == young.id
+      false
+    else
+      p "singles_tournamentコントローラーのnext_battle_young?メソッドでエラー発生"
+      p match.id
     end
   end
 

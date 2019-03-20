@@ -33,9 +33,9 @@ Root.create(name: "root", email: "gakuren@gmail.com", password: "gakuren")
 # シングルス大会
 tournament = SinglesTournament.create(name: "平成31年度春関男子シングルス", draw: 128)
 [0,2,3,4,7,8,11,12,13,15,16,18,19,20,23,24,27,28,29,31,32,34,35,36,39,40,43,44,45,47,48,50,51,52,55,56,59,60,61,63,64,66,67,68,71,72,75,76,77,79,80,82,83,84,87,88,91,92,93,95,96,98,99,100,103,104,107,108,109,111,112,114,115,116,119,120,123,124,125,127].map do |number|
-  tournament.singles_player.create(name: "プレイヤー#{number}", college: "大学#{number}", number: number)
+  tournament.singles_players.create(name: "プレイヤー#{number + 1}", college: "大学#{number + 1}", number: number + 1)
 end
 [1,5,6,9,10,14,17,21,22,25,26,30,33,37,38,41,42,46,49,53,54,57,58,62,65,69,70,73,74,78,81,85,86,89,90,94,97,101,102,105,106,110,113,117,118,121,122,126].map do |number|
-  tournament.singles_player.create(name: "BYE", number: number)
+  tournament.singles_players.create(name: "BYE", number: number + 1)
 end
 tournament.init

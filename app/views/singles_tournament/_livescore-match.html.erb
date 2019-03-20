@@ -1,0 +1,34 @@
+<% young_player = @tournament.singles_players.find_by(number: match.young) %>
+<% old_player = @tournament.singles_players.find_by(number: match.old) %>
+<td>
+  <table class="livescore-match">
+    <tr>
+      <td class="livescore-player">
+        <span class="livescore-player-num"><%= match.young %></span><%= young_player.name %>(<%= young_player.college %>)
+      </td>
+      <td class="livescore-score">
+        0
+      </td>
+      <td class="livescore-score">
+        0
+      </td>
+      <td class="livescore-score">
+        0
+      </td>
+    </tr>
+    <tr>
+      <td class="livescore-player">
+        <span class="livescore-player-num"><%= match.old %></span><%= old_player.name %>(<%= old_player.college %>)
+      </td>
+      <td class="livescore-score">
+        0
+      </td>
+      <td class="livescore-score">
+        0
+      </td>
+      <td class="livescore-score">
+        0
+      </td>
+    </tr>
+  </table>
+</td>

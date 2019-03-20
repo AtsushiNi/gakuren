@@ -2,28 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table.livescore {
-border-collapse: collapse; 
+table.livescore-match {
+  border-collapse: collapse;
+  margin: 3px;
+}
+
+td.livescore-player {
+  border: solid 1px silver;
+  font-size: 12px;
+  width: 140px;
+}
+
+td.livescore-score {
+  border: solid 1px silver;
+  width: 18px;
+  text-align:center;
 }
 
 span.livescore-player-num {
-  font-size: 12px;
-  padding-right: 6px;
-}
-
-span.livescore-player-name {
-  font-size: 12px;
-}
-
-span.livescore-player-college {
-  font-size: 12px;
-}
-
-p.livescore-vs {
-  margin: 0;
-  text-align: center;
-}
-
-td.livescore-match {
-  border: solid 1px black;
+  display: inline-block;
+  width: 25px;
 }

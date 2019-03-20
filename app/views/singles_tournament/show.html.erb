@@ -1,70 +1,48 @@
-<% courts = courts(@tournament.courts) %>
-<table class="livescore">
+<% courts = courts(@tournament.courts).each_slice(6).to_a %>
+<% courts.each do |some_courts| %>
+<table>
   <tr>
-    <% courts.each do |court| %>
+    <% some_courts.each do |court| %>
     <th>
       <%= court %>
     </th>
     <% end %>
   </tr>
   <tr>
-    <% courts.each do |court| %>
+    <% some_courts.each do |court| %>
     <% if (match = @tournament.matches.find_by(turn: 1, court: court)) %>
-    <% young_player = @tournament.singles_players.find_by(number: match.young) %>
-    <% old_player = @tournament.singles_players.find_by(number: match.old) %>
-    <td class="livescore-match">
-      <span class="livescore-player-num"><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-player-college">(<%= young_player.college %>)</span><br/>
-      <p class="livescore-vs">vs</p>
-      <span class="livescore-player-num"><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-player-college">(<%= old_player.college %>)</span>
-    </td>
+    <%= render partial: "livescore-match", locals: {match: match} %>
     <% else %>
     <td></td>
     <% end %>
     <% end %>
   </tr>
   <tr>
-    <% courts.each do |court| %>
+    <% some_courts.each do |court| %>
     <% if (match = @tournament.matches.find_by(turn: 2, court: court)) %>
-    <% young_player = @tournament.singles_players.find_by(number: match.young) %>
-    <% old_player = @tournament.singles_players.find_by(number: match.old) %>
-    <td class="livescore-match">
-      <span class="livescore-player-num"><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-player-college">(<%= young_player.college %>)</span><br/>
-      <p class="livescore-vs">vs</p>
-      <span class="livescore-player-num"><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-player-college">(<%= old_player.college %>)</span>
-    </td>
+    <%= render partial: "livescore-match", locals: {match: match} %>
     <% else %>
     <td></td>
     <% end %>
     <% end %>
   </tr>
   <tr>
-    <% courts.each do |court| %>
+    <% some_courts.each do |court| %>
     <% if (match = @tournament.matches.find_by(turn: 3, court: court)) %>
-    <% young_player = @tournament.singles_players.find_by(number: match.young) %>
-    <% old_player = @tournament.singles_players.find_by(number: match.old) %>
-    <td class="livescore-match">
-      <span class="livescore-player-num"><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-player-college">(<%= young_player.college %>)</span><br/>
-      <p class="livescore-vs">vs</p>
-      <span class="livescore-player-num"><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-player-college">(<%= old_player.college %>)</span>
-    </td>
+    <%= render partial: "livescore-match", locals: {match: match} %>
     <% else %>
     <td></td>
     <% end %>
     <% end %>
   </tr>
   <tr>
-    <% courts.each do |court| %>
+    <% some_courts.each do |court| %>
     <% if (match = @tournament.matches.find_by(turn: 4, court: court)) %>
-    <% young_player = @tournament.singles_players.find_by(number: match.young) %>
-    <% old_player = @tournament.singles_players.find_by(number: match.old) %>
-    <td class="livescore-match">
-      <span class="livescore-player-num"><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-player-college">(<%= young_player.college %>)</span><br/>
-      <p class="livescore-vs">vs</p>
-      <span class="livescore-player-num"><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-player-college">(<%= old_player.college %>)</span>
-    </td>
-    <% else %>
+    <%= render partial: "livescore-match", locals: {match: match} %>
     <td></td>
+    <% else %>
     <% end %>
     <% end %>
   </tr>
 </table>
+<% end %>

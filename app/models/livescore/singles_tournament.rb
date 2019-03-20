@@ -73,7 +73,6 @@ class SinglesTournament < ApplicationRecord
   # このmatchの勝者が次戦のyoungならtrue,oldならfalse
   def next_battle_young?(match)
     young = self.matches.where(parent_id: match.parent_id).order(id: "ASC").first
-    p young.id
     if match.id == young.id
       true
     elsif match.id - 1 == young.id

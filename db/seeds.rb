@@ -31,7 +31,7 @@ College.create(name: "京都産業大学女子部", men: false, email: "kyousan_
 Root.create(name: "root", email: "gakuren@gmail.com", password: "gakuren")
 
 # シングルス大会
-tournament = SinglesTournament.create(name: "平成31年度春関男子シングルス", draw: 128)
+tournament = SinglesTournament.create(name: "平成31年度春関男子シングルス", draw: 128, courts: "0102030405061011")
 [0,2,3,4,7,8,11,12,13,15,16,18,19,20,23,24,27,28,29,31,32,34,35,36,39,40,43,44,45,47,48,50,51,52,55,56,59,60,61,63,64,66,67,68,71,72,75,76,77,79,80,82,83,84,87,88,91,92,93,95,96,98,99,100,103,104,107,108,109,111,112,114,115,116,119,120,123,124,125,127].map do |number|
   tournament.singles_players.create(name: "プレイヤー#{number + 1}", college: "大学#{number + 1}", number: number + 1)
 end
@@ -39,3 +39,19 @@ end
   tournament.singles_players.create(name: "BYE", number: number + 1)
 end
 tournament.init
+Match.find(33).update_attributes(turn: 1, court: 1)
+Match.find(34).update_attributes(turn: 1, court: 2)
+Match.find(37).update_attributes(turn: 1, court: 3)
+Match.find(38).update_attributes(turn: 1, court: 4)
+Match.find(41).update_attributes(turn: 1, court: 5)
+Match.find(42).update_attributes(turn: 1, court: 6)
+Match.find(65).update_attributes(turn: 1, court: 10)
+Match.find(70).update_attributes(turn: 1, court: 11)
+Match.find(73).update_attributes(turn: 2, court: 1)
+Match.find(78).update_attributes(turn: 2, court: 2)
+Match.find(81).update_attributes(turn: 2, court: 3)
+Match.find(86).update_attributes(turn: 2, court: 4)
+Match.find(89).update_attributes(turn: 2, court: 5)
+Match.find(94).update_attributes(turn: 2, court: 6)
+Match.find(97).update_attributes(turn: 2, court: 10)
+Match.find(102).update_attributes(turn: 2, court: 11)

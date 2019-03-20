@@ -1,2 +1,70 @@
-<table>
-  </table>
+<% courts = courts(@tournament.courts) %>
+<table class="livescore">
+  <tr>
+    <% courts.each do |court| %>
+    <th>
+      <%= court %>
+    </th>
+    <% end %>
+  </tr>
+  <tr>
+    <% courts.each do |court| %>
+    <% if (match = @tournament.matches.find_by(turn: 1, court: court)) %>
+    <% young_player = @tournament.singles_players.find_by(number: match.young) %>
+    <% old_player = @tournament.singles_players.find_by(number: match.old) %>
+    <td class="livescore-match">
+      <span class="livescore-player-num"><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-player-college">(<%= young_player.college %>)</span><br/>
+      <p class="livescore-vs">vs</p>
+      <span class="livescore-player-num"><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-player-college">(<%= old_player.college %>)</span>
+    </td>
+    <% else %>
+    <td></td>
+    <% end %>
+    <% end %>
+  </tr>
+  <tr>
+    <% courts.each do |court| %>
+    <% if (match = @tournament.matches.find_by(turn: 2, court: court)) %>
+    <% young_player = @tournament.singles_players.find_by(number: match.young) %>
+    <% old_player = @tournament.singles_players.find_by(number: match.old) %>
+    <td class="livescore-match">
+      <span class="livescore-player-num"><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-player-college">(<%= young_player.college %>)</span><br/>
+      <p class="livescore-vs">vs</p>
+      <span class="livescore-player-num"><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-player-college">(<%= old_player.college %>)</span>
+    </td>
+    <% else %>
+    <td></td>
+    <% end %>
+    <% end %>
+  </tr>
+  <tr>
+    <% courts.each do |court| %>
+    <% if (match = @tournament.matches.find_by(turn: 3, court: court)) %>
+    <% young_player = @tournament.singles_players.find_by(number: match.young) %>
+    <% old_player = @tournament.singles_players.find_by(number: match.old) %>
+    <td class="livescore-match">
+      <span class="livescore-player-num"><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-player-college">(<%= young_player.college %>)</span><br/>
+      <p class="livescore-vs">vs</p>
+      <span class="livescore-player-num"><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-player-college">(<%= old_player.college %>)</span>
+    </td>
+    <% else %>
+    <td></td>
+    <% end %>
+    <% end %>
+  </tr>
+  <tr>
+    <% courts.each do |court| %>
+    <% if (match = @tournament.matches.find_by(turn: 4, court: court)) %>
+    <% young_player = @tournament.singles_players.find_by(number: match.young) %>
+    <% old_player = @tournament.singles_players.find_by(number: match.old) %>
+    <td class="livescore-match">
+      <span class="livescore-player-num"><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-player-college">(<%= young_player.college %>)</span><br/>
+      <p class="livescore-vs">vs</p>
+      <span class="livescore-player-num"><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-player-college">(<%= old_player.college %>)</span>
+    </td>
+    <% else %>
+    <td></td>
+    <% end %>
+    <% end %>
+  </tr>
+</table>

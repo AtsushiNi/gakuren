@@ -17,6 +17,7 @@
   <button class="modal-controlButton" id="12down">-</button>
   <button class="modal-controlButton" id="12up">+</button><br />
   <%= form_tag("/match", method: :post) do %>
+  <%= hidden_field_tag :"match_num" %>
   <%= hidden_field_tag :"00" %>
   <%= hidden_field_tag :"01" %>
   <%= hidden_field_tag :"02" %>
@@ -37,7 +38,7 @@
       score[0][i]=Number(target.get()[0].children[0].children[0].children[0].children[i+1].childNodes[0].data);
       score[1][i]=Number(target.get()[0].children[0].children[0].children[1].children[i+1].childNodes[0].data);
     }
-
+    $("#match_num").val(target.get()[0].children[1].childNodes[0].data)
     display(score, target);
     updownButtonInit(score,target);
     $("#livescore-overlay, #livescore-modal").fadeIn();

@@ -2,35 +2,42 @@
 <% young_player = @tournament.singles_players.find_by(number: match.young) %>
 <% old_player = @tournament.singles_players.find_by(number: match.old) %>
 <% score = match.get_score %>
-<table class='livescore-match'>
-  <tr>
-    <td class='livescore-player'>
-      <span class='livescore-player-num'><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-college">(<%= young_player.college %>)</span>
-    </td>
-    <td class="livescore-score">
-      <%= score[0][0] if score[0][0] %>
-    </td>
-    <td class="livescore-score">
-      <%= score[1][0] if score[1][0] %>
-    </td>
-    <td class="livescore-score">
-      <%= score[2][0] if score[2][0] %>
-    </td>
-  </tr>
-  <tr>
-    <td class="livescore-player">
-      <span class='livescore-player-num'><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-college">(<%= old_player.college %>)</span>
-    </td>
-    <td class="livescore-score">
-      <%= score[0][1] if score[0][1] %>
-    </td>
-    <td class="livescore-score">
-      <%= score[1][1] if score[1][1] %>
-    </td>
-    <td class="livescore-score">
-      <%= score[2][1] if score[2][1] %>
-    </td>
-  </tr>
-</table>
-<p style="visibility: hidden;height:1px;"><%= match.id %></p>
-<% end %>
+<% if match.status == "Playing" %>
+<table class='livescore-match-playing'>
+  <% else %>
+  <table class="livescore-match">
+    <% end %>
+    <tr>
+      <td class='livescore-player'>
+        <span class='livescore-player-num'><%= match.young %></span><span class="livescore-player-name"><%= young_player.name %></span><span class="livescore-college">(<%= young_player.college %>)</span>
+      </td>
+      <td class="livescore-score">
+        <%= score[0][0] if score[0][0] %>
+      </td>
+      <td class="livescore-score">
+        <%= score[1][0] if score[1][0] %>
+      </td>
+      <td class="livescore-score">
+        <%= score[2][0] if score[2][0] %>
+      </td>
+    </tr>
+    <tr>
+      <td class="livescore-player">
+        <span class='livescore-player-num'><%= match.old %></span><span class="livescore-player-name"><%= old_player.name %></span><span class="livescore-college">(<%= old_player.college %>)</span>
+      </td>
+      <td class="livescore-score">
+        <%= score[0][1] if score[0][1] %>
+      </td>
+      <td class="livescore-score">
+        <%= score[1][1] if score[1][1] %>
+      </td>
+      <td class="livescore-score">
+        <%= score[2][1] if score[2][1] %>
+      </td>
+    </tr>
+    <% if match.status == "Not-before" || match.status == "Start-at" %>
+    <button class="livescore-button">Start</button>
+    <% end %>
+  </table>
+  <p style="visibility: hidden;height:1px;"><%= match.id %></p>
+  <% end %>

@@ -55,7 +55,7 @@
         <% end %>
       </td>
     </tr>
-    <% if match.status == "Not-before" || match.status == "Start-at" %>
+    <% if match.ready == true %>
     <button class="livescore-start-button">Start</button>
     <% end %>
   </table>

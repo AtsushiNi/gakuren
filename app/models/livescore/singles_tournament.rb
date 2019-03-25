@@ -55,31 +55,18 @@ class SinglesTournament < ApplicationRecord
     matches = self.matches.where(round: 1)
     matches.each do |match|
       if self.singles_players.find_by(number: match.young).name == "BYE" #youngがBYE
-        if next_battle_young?(match)
+        if match.next_battle_young?
           self.matches.find(match.parent_id).update_attributes(young: match.old)
         else
           self.matches.find(match.parent_id).update_attributes(old: match.old)
         end
       elsif self.singles_players.find_by(number: match.old).name == "BYE" #oldがBYE
-        if next_battle_young?(match)
+        if match.next_battle_young?
           self.matches.find(match.parent_id).update_attributes(young: match.young)
         else
           self.matches.find(match.parent_id).update_attributes(old: match.young)
         end
       end
-    end
-  end
-
-  # このmatchの勝者が次戦のyoungならtrue,oldならfalse
-  def next_battle_young?(match)
-    young = self.matches.where(parent_id: match.parent_id).order(id: "ASC").first
-    if match.id == young.id
-      true
-    elsif match.id - 1 == young.id
-      false
-    else
-      p "singles_tournamentコントローラーのnext_battle_young?メソッドでエラー発生"
-      p match.id
     end
   end
 

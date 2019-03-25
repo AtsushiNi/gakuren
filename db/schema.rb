@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_003904) do
+ActiveRecord::Schema.define(version: 2019_03_25_035527) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_003904) do
     t.string "status"
     t.time "start_time"
     t.time "finish_time"
+    t.boolean "ready"
     t.index ["singles_tournament_id"], name: "index_matches_on_singles_tournament_id"
   end
 

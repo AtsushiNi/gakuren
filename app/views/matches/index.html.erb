@@ -22,7 +22,7 @@
 
   <!-- 1ラウンド -->
   <div style="float: left;width: 115px;height:500px;">
-    <% @matches.where(round: 1).limit(32).each do |match| %>
+    <% @matches.where(round: 1).order(:id).limit(32).each do |match| %>
     <div style="margin-top:30px;height:90px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
@@ -37,7 +37,7 @@
 
   <!-- 2ラウンド -->
   <div style="float: left;width: 115px;height:500px;">
-    <% @matches.where(round: 2).limit(16).each do |match| %>
+    <% @matches.where(round: 2).order(:id).limit(16).each do |match| %>
     <div style="margin-top:90px;height:150px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
@@ -52,7 +52,7 @@
 
   <!-- 3ラウンド -->
   <div style="float:left;width: 115px;height:500px;">
-    <% @matches.where(round: 3).limit(8).each do |match| %>
+    <% @matches.where(round: 3).order(:id).limit(8).each do |match| %>
     <div style="margin-top: 210px;height:270px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
@@ -67,7 +67,7 @@
 
   <!-- 4ラウンド -->
   <div style="float:left;width: 115px;height:500px;">
-    <% @matches.where(round: 4).limit(4).each do |match| %>
+    <% @matches.where(round: 4).order(:id).limit(4).each do |match| %>
     <div style="margin-top: 450px;height:510px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
@@ -82,7 +82,7 @@
 
   <!-- 5ラウンド -->
   <div style="float:left;width: 115px;height:500px;">
-    <% @matches.where(round: 5).limit(2).each do |match| %>
+    <% @matches.where(round: 5).order(:id).limit(2).each do |match| %>
     <div style="margin-top: 940px;height:980px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 

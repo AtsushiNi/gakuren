@@ -27,9 +27,9 @@ class MatchesController < ApplicationController
 
       nextRound_match = Match.find(@match.parent_id)
       if @match.next_battle_young? == true
-        nextRound_match.update_attributes(young: @match.id)
+        nextRound_match.update_attributes(young: winner)
       elsif @match.next_battle_young? == false
-        nextRound_match.update_attributes(old: @match.id)
+        nextRound_match.update_attributes(old: winner)
       end
     end
     redirect_to livescore_path

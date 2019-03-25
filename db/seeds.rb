@@ -75,8 +75,8 @@ tournament.singles_players.create(name: "福長　拓真", college: "近　大",
 end
 tournament.init
 Match.find(33).update_attributes(turn: 1, court: 1, score: "4-6set-set-", status: "Playing", start_time: Time.zone.local(2019,3,24,10,20,0))
-Match.find(34).update_attributes(turn: 1, court: 2, score: "4-6set3-6set-", status: "Playing", start_time: Time.zone.local(2019,3,24,10,22,0))
-Match.find(37).update_attributes(turn: 1, court: 3, score: "4-6set6-4set6-3", status: "Completed", start_time: Time.zone.local(2019,3,24,10,21,0), finish_time: Time.zone.local(2019,3,24,12,33,0))
+Match.find(34).update_attributes(turn: 1, court: 2, score: "4-6set3-4set-", status: "Playing", start_time: Time.zone.local(2019,3,24,10,22,0))
+Match.find(37).update_attributes(turn: 1, court: 3, score: "4-6set6-4set6-3", winner_num: 21, status: "Completed", start_time: Time.zone.local(2019,3,24,10,21,0), finish_time: Time.zone.local(2019,3,24,12,33,0))
 Match.find(38).update_attributes(turn: 1, court: 4, status: "Start-at", start_time: Time.zone.local(2019,3,24,13,30,0), ready: true)
 Match.find(41).update_attributes(turn: 1, court: 5, status: "Start-at", start_time: Time.zone.local(2019,3,24,13,30,0), ready: true)
 Match.find(42).update_attributes(turn: 1, court: 6, status: "Start-at", start_time: Time.zone.local(2019,3,24,13,30,0), ready: true)

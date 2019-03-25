@@ -1,6 +1,33 @@
 // Place all the styles related to the singles_tournament controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2.livescore-h2 {
+  border-bottom: 4px solid purple;
+  margin: 30px auto 30px 10px;
+}
+
+.livescore-tab {
+  display: inline-block;
+  width: 80px;
+  height: 35px;
+  margin-left: 5px;
+  border: solid 1px black;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+}
+
+.livescore-tab-line {
+  margin-top: 0;
+  background-color: black;
+  height: 2px;
+}
+
 .livescore-td {
   position: relative;
   overflow: hidden;
@@ -22,11 +49,6 @@ button.livescore-start-button {
   background-color: rgba(128,0,128,0.9);
   &:hover {
   }
-}
-
-h2.livescore-h2 {
-  border-bottom: 4px solid purple;
-  margin: 30px auto 50px 10px;
 }
 
 table.livescore-courts {

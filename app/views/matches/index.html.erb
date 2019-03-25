@@ -1,19 +1,145 @@
-<h1>Matches#index</h1>
-<% @matches.each do |match| %>
-<table>
-  <tr>
-    <th>id</th>
-    <th>parend_id</th>
-    <th>round</th>
-    <th>young</th>
-    <th>old</th>
-  </tr>
-  <tr>
-    <td><%= match.id %></td>
-    <td><%= match.parent_id%></td>
-    <td><%= match.round %></td>
-    <td><%= match.young %></td>
-    <td><%= match.old %></td>
-  </tr>
-</table>
-<% end %>
+<h2 class="draw-h2"><%= SinglesTournament.find(@matches.first.singles_tournament_id).name %></h2>
+
+<%= link_to "Draw","/matches", class:"draw-tab", style:"background-color:rgba(1,1,1,0.2);" %>
+<%= link_to "OP","/livescore", class:"draw-tab" %>
+<hr class="draw-tab-line" />
+
+<div style="height: 500px;">
+  <!-- プレイヤーリスト -->
+  <div style="float: left;width: 155px;height:500px;">
+    <% SinglesPlayer.all.order(:number).each do |player| %>
+    <div style="height:60px;font-size:12px;">
+      <%= player.number %><%= player.name %>(<%=player.college %>)
+
+      <% if player.number%2==1 %>
+      <div style="border-right:solid;border-top:solid;height:45px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:45px;width:20px;position:relative;top:-55px;left:130px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 1ラウンド -->
+  <div style="float: left;width: 155px;height:500px;">
+    <% @matches.where(round: 1).each do |match| %>
+    <div style="margin-top:30px;height:90px;">
+      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id%2==0 %>
+      <div style="border-right:solid;border-top:solid;height:90px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:90px;width:20px;position:relative;top:-105px;left:130px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 2ラウンド -->
+  <div style="float: left;width: 155px;height:500px;">
+    <% @matches.where(round: 2).each do |match| %>
+    <div style="margin-top:90px;height:150px;">
+      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-right:solid;border-top:solid;height:180px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:180px;width:20px;position:relative;top:-190px;left:130px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 3ラウンド -->
+  <div style="float:left;width: 155px;height:500px;">
+    <% @matches.where(round: 3).each do |match| %>
+    <div style="margin-top: 210px;height:270px;">
+      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-right:solid;border-top:solid;height:250px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:250px;width:20px;position:relative;top:-260px;left:130px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 4ラウンド -->
+  <div style="float:left;width: 155px;height:500px;">
+    <% @matches.where(round: 4).each do |match| %>
+    <div style="margin-top: 450px;height:510px;">
+      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-right:solid;border-top:solid;height:550px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:550px;width:20px;position:relative;top:-560px;left:130px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 5ラウンド -->
+  <div style="float:left;width: 155px;height:500px;">
+    <% @matches.where(round: 5).each do |match| %>
+    <div style="margin-top: 940px;height:980px;">
+      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-right:solid;border-top:solid;height:1050px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:1050px;width:20px;position:relative;top:-1060px;left:130px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 6ラウンド -->
+  <div style="float:left;width: 155px;height:500px;">
+    <% @matches.where(round: 6).each do |match| %>
+    <div style="margin-top: 1890px;height:1950px;">
+      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-right:solid;border-top:solid;height:2050px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:2050px;width:20px;position:relative;top:-2060px;left:130px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+
+</div>
+
+
+
+
+<!-- tableを使った場合のレイアウト
+  <table>
+    <%  [-1,64,-2,32,-3,65,-4,16,-5,66,-6,33,-7,67,-8,8,-9,68,-10,34,-11,69,-12,17,-13,70,-14,35,-15,71,-16,4,-17,72,-18,36,-19,73,-20,18,-21,74,-22,37,-23,75,-24,9,-25,76,-26,38,-27,77,-28,19,-29,78,-30,39,-31,79,-32,2,-33,80,-34,40,-35,81,-36,20,-37,82,-38,41,-39,83,-40,10,-41,84,-42,42,-43,85,-44,21,-45,86,-46,43,-47,87,-48,-49,88,-50,44,-51,89,-52,22-53,90,-54,45,-55,91,-56,11,-57,92,-58,46,-59,93,-60,23,-61,94,-62,47,-63,95,-64,1,-65,96,-66,48,-67,97,-68,24,-69,98,-70,49,-71,99,-72,12,-73,100,-74,50,-75,101,-76,25,-77,102,-78,51,-79,103,-80,6,-81,104,-82,52,-83,105,-84,26,-85,106,-86,53,-87,107,-88,13,-89,108,-90,54,-91,109,-92,27,-93,110,-94,55,-95,111,-96,3,-97,112,-98,56,-99,113,-100,28,-101,114,-102,57,-103,115,-104,14,-105,116,-106,58,-107,117,-108,29,-109,118,-110,59,-111,119,-112,7,-113,120,-114,60,-115,121,-116,30,-117,122,-118,61,-119,123,-120,15,-121,124,-122,62,-123,125,-124,31,-125,126,-126,63,-127,127,-128].each do |num| %>
+    <tr>
+      <% if num < 0 %>
+      <td style="font-size: 12px;" class="<%= num%4 %>">
+        <% player = SinglesPlayer.find_by(number: -num) %>
+        <% if player.name != "BYE" %>
+        <%= player.number %><%= player.name %>(<%= player.college %>)
+        <% else %>
+        <%= "BYE" %>
+        <% end %>
+      </td>
+      <% else %>
+      <% @matches.find(num).round.times do %>
+      <td>
+      </td>
+      <% end %>
+      <td style="width: 150px;">
+        <%= num %>
+        <%= SinglesPlayer.find_by(number: (@matches.find(num).winner_num)).name if @matches.find(num).winner_num %>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+-->

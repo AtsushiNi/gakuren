@@ -60,12 +60,14 @@ class SinglesTournament < ApplicationRecord
         else
           self.matches.find(match.parent_id).update_attributes(old: match.old)
         end
+        match.update_attributes(winner_num: match.old)
       elsif self.singles_players.find_by(number: match.old).name == "BYE" #oldがBYE
         if match.next_battle_young?
           self.matches.find(match.parent_id).update_attributes(young: match.young)
         else
           self.matches.find(match.parent_id).update_attributes(old: match.young)
         end
+        match.update_attributes(winner_num: match.young)
       end
     end
   end

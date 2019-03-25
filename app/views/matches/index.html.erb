@@ -4,112 +4,91 @@
 <%= link_to "OP","/livescore", class:"draw-tab" %>
 <hr class="draw-tab-line" />
 
-<div style="height: 500px;">
+<div style="height: 4000px;font-size:12px;">
   <!-- プレイヤーリスト -->
-  <div style="float: left;width: 155px;height:500px;">
-    <% SinglesPlayer.all.order(:number).each do |player| %>
-    <div style="height:60px;font-size:12px;">
+  <div style="float: left;width: 145px;height:500px;">
+    <% SinglesPlayer.all.order(:number).limit(64).each do |player| %>
+    <div style="height:60px;">
       <%= player.number %><%= player.name %>(<%=player.college %>)
 
       <% if player.number%2==1 %>
-      <div style="border-right:solid;border-top:solid;height:45px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <div style="border-right:solid;border-top:solid;height:45px;width:10px;position:relative;top:-10px;left:130px;"></div>
       <% else %>
-      <div style="border-right:solid;border-bottom:solid;height:45px;width:20px;position:relative;top:-55px;left:130px;"></div>
+      <div style="border-right:solid;border-bottom:solid;height:45px;width:10px;position:relative;top:-55px;left:130px;"></div>
       <% end %>
     </div>
     <% end %>
   </div>
 
   <!-- 1ラウンド -->
-  <div style="float: left;width: 155px;height:500px;">
-    <% @matches.where(round: 1).each do |match| %>
+  <div style="float: left;width: 115px;height:500px;">
+    <% @matches.where(round: 1).limit(32).each do |match| %>
     <div style="margin-top:30px;height:90px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id%2==0 %>
-      <div style="border-right:solid;border-top:solid;height:90px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <div style="border-right:solid;border-top:solid;height:90px;width:10px;position:relative;top:-10px;left:100px;"></div>
       <% else %>
-      <div style="border-right:solid;border-bottom:solid;height:90px;width:20px;position:relative;top:-105px;left:130px;"></div>
+      <div style="border-right:solid;border-bottom:solid;height:90px;width:10px;position:relative;top:-105px;left:100px;"></div>
       <% end %>
     </div>
     <% end %>
   </div>
 
   <!-- 2ラウンド -->
-  <div style="float: left;width: 155px;height:500px;">
-    <% @matches.where(round: 2).each do |match| %>
+  <div style="float: left;width: 115px;height:500px;">
+    <% @matches.where(round: 2).limit(16).each do |match| %>
     <div style="margin-top:90px;height:150px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id % 2 == 0 %>
-      <div style="border-right:solid;border-top:solid;height:180px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <div style="border-right:solid;border-top:solid;height:180px;width:10px;position:relative;top:-10px;left:100px;"></div>
       <% else %>
-      <div style="border-right:solid;border-bottom:solid;height:180px;width:20px;position:relative;top:-190px;left:130px;"></div>
+      <div style="border-right:solid;border-bottom:solid;height:180px;width:10px;position:relative;top:-190px;left:100px;"></div>
       <% end %>
     </div>
     <% end %>
   </div>
 
   <!-- 3ラウンド -->
-  <div style="float:left;width: 155px;height:500px;">
-    <% @matches.where(round: 3).each do |match| %>
+  <div style="float:left;width: 115px;height:500px;">
+    <% @matches.where(round: 3).limit(8).each do |match| %>
     <div style="margin-top: 210px;height:270px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id % 2 == 0 %>
-      <div style="border-right:solid;border-top:solid;height:250px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <div style="border-right:solid;border-top:solid;height:250px;width:10px;position:relative;top:-10px;left:100px;"></div>
       <% else %>
-      <div style="border-right:solid;border-bottom:solid;height:250px;width:20px;position:relative;top:-260px;left:130px;"></div>
+      <div style="border-right:solid;border-bottom:solid;height:250px;width:10px;position:relative;top:-260px;left:100px;"></div>
       <% end %>
     </div>
     <% end %>
   </div>
 
   <!-- 4ラウンド -->
-  <div style="float:left;width: 155px;height:500px;">
-    <% @matches.where(round: 4).each do |match| %>
+  <div style="float:left;width: 115px;height:500px;">
+    <% @matches.where(round: 4).limit(4).each do |match| %>
     <div style="margin-top: 450px;height:510px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id % 2 == 0 %>
-      <div style="border-right:solid;border-top:solid;height:550px;width:20px;position:relative;top:-10px;left:130px;"></div>
+      <div style="border-right:solid;border-top:solid;height:550px;width:10px;position:relative;top:-10px;left:100px;"></div>
       <% else %>
-      <div style="border-right:solid;border-bottom:solid;height:550px;width:20px;position:relative;top:-560px;left:130px;"></div>
+      <div style="border-right:solid;border-bottom:solid;height:550px;width:10px;position:relative;top:-560px;left:100px;"></div>
       <% end %>
     </div>
     <% end %>
   </div>
 
   <!-- 5ラウンド -->
-  <div style="float:left;width: 155px;height:500px;">
-    <% @matches.where(round: 5).each do |match| %>
+  <div style="float:left;width: 115px;height:500px;">
+    <% @matches.where(round: 5).limit(2).each do |match| %>
     <div style="margin-top: 940px;height:980px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
-      <% if match.id % 2 == 0 %>
-      <div style="border-right:solid;border-top:solid;height:1050px;width:20px;position:relative;top:-10px;left:130px;"></div>
-      <% else %>
-      <div style="border-right:solid;border-bottom:solid;height:1050px;width:20px;position:relative;top:-1060px;left:130px;"></div>
-      <% end %>
     </div>
     <% end %>
   </div>
-
-  <!-- 6ラウンド -->
-  <div style="float:left;width: 155px;height:500px;">
-    <% @matches.where(round: 6).each do |match| %>
-    <div style="margin-top: 1890px;height:1950px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
-
-      <% if match.id % 2 == 0 %>
-      <div style="border-right:solid;border-top:solid;height:2050px;width:20px;position:relative;top:-10px;left:130px;"></div>
-      <% else %>
-      <div style="border-right:solid;border-bottom:solid;height:2050px;width:20px;position:relative;top:-2060px;left:130px;"></div>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-
 
 </div>
 

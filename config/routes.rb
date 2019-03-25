@@ -15,6 +15,7 @@ post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 get '/livescore', to: 'singles_tournament#show' #ライブスコアページ
 get '/matches', to: 'matches#index' #トーナメント表
+post '/livescore/start', to: "matches#start" #試合開始
 post '/match', to: 'matches#update' #スコアアップデート
 resources :news
 resources :members

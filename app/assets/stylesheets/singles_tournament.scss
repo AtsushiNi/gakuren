@@ -4,9 +4,11 @@
 .livescore-td {
   position: relative;
   overflow: hidden;
+  padding-left: 7px;
+  height: 70px;
 }
 
-button.livescore-button {
+button.livescore-start-button {
   position: absolute;
   top: 0;
   left: 100%;
@@ -33,6 +35,7 @@ table.livescore-courts {
 
 table.livescore-match-playing {
   border-collapse: collapse;
+  width: 225px;
   margin: 3px;
   &:hover {
     box-shadow: 2px 2px 5px rgba(128, 0, 128, 0.5);
@@ -45,6 +48,7 @@ table.livescore-match-playing {
 table.livescore-match {
   border-collapse: collapse;
   margin: 3px;
+  width: 225px;
   &:hover {
     transition: 0.15s all linear 0s;
   }
@@ -77,6 +81,18 @@ td.livescore-score {
 span.livescore-player-num {
   display: inline-block;
   width: 25px;
+}
+
+tr.livescore-match-status {
+  border: 1px solid silver;
+  font-size: 10px;
+}
+
+span.livescore-match-statusLabel {
+  padding: 2px;
+  margin-left: 2px;
+  background-color: purple;
+  color: white;
 }
 
 div#livescore-overlay {

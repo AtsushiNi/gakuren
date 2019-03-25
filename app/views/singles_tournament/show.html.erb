@@ -1,6 +1,6 @@
 <h2 class="livescore-h2"><%= @tournament.name %></h2>
 
-<% courts = courts(@tournament.courts).each_slice(6).to_a %>
+<% courts = courts(@tournament.courts).each_slice(5).to_a %>
 <% courts.each do |some_courts| %>
 <table class="livescore-courts">
   <tr>
@@ -13,7 +13,7 @@
   <% (1..4).each do |turn| %>
   <tr>
     <% some_courts.each do |court| %>
-    <td class="livescore-td";style="height: 70px;"><%= render partial: "livescore-match", locals: {turn: turn,court: court} %></td>
+    <td class="livescore-td"><%= render partial: "livescore-match", locals: {turn: turn,court: court} %></td>
     <% end %>
   </tr>
   <% end %>

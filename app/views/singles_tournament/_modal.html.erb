@@ -30,9 +30,20 @@
 </div>
 
 <script>
-  $(".livescore-td").hover(function(){$(this).find(".livescore-button").css({'left':'2px', 'transition':'0.2s all ease 0s'})});
-  $(".livescore-td").mouseleave(function(){$(this).find(".livescore-button").css({'left':'-100%', 'transition':'0.1s all ease 0s'})});
+  // スタートボタンの表示
+  $(".livescore-td").hover(function(){$(this).find(".livescore-start-button").css({'left':'2px', 'transition':'0.2s all ease 0s'})});
+  $(".livescore-td").mouseleave(function(){$(this).find(".livescore-start-button").css({'left':'-100%', 'transition':'0.1s all ease 0s'})});
 
+  // スタートボタンのイベント
+  $(".livescore-start-button").click(function(){
+    $.ajax({
+      url:"./livescore/start",
+      type:"POST",
+      data:{"id":$(this).parent().children("p")[0].textContent}
+    })
+  })
+
+  // モーダルの表示
   $(".livescore-td").click(function(event) {
     if ($(this).find(".livescore-match-playing")[0] == undefined) {
       return;

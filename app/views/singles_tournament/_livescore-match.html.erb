@@ -2,6 +2,9 @@
 <% young_player = @tournament.singles_players.find_by(number: match.young) %>
 <% old_player = @tournament.singles_players.find_by(number: match.old) %>
 <% score = match.get_score %>
+<div style="width: 7px;height: 94px;margin-top:3px;background-color: purple;float:left;">
+
+  </div>
 <% if match.status == "Playing" %>
 <table class='livescore-match-playing'>
   <% else %>
@@ -35,9 +38,26 @@
         <%= score[2][1] if score[2][1] %>
       </td>
     </tr>
+    <tr class="livescore-match-status">
+      <td>
+        <span class="livescore-match-statusLabel"><%= match.status %></span>
+      </td>
+      <td colspan="3">
+        <% case match.status %>
+        <% when "Start-at" then %>
+        <%="Start at " + match.start_time.strftime("%H:%M") %>
+        <% when "Not-before" then %>
+        <%= "Not before " + match.start_time.strftime("%H:%M") %>
+        <% when "Playing" then %>
+        <%= "Started at " + match.start_time.strftime("%H:%M") %>
+        <% when "Completed" then %>
+        <%= "Finished at " + match.finish_time.strftime("%H:%M") %>
+        <% end %>
+      </td>
+    </tr>
     <% if match.status == "Not-before" || match.status == "Start-at" %>
-    <button class="livescore-button">Start</button>
+    <button class="livescore-start-button">Start</button>
     <% end %>
   </table>
   <p style="visibility: hidden;height:1px;"><%= match.id %></p>
-  <% end %>
+<% end %>

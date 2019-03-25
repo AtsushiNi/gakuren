@@ -107,7 +107,7 @@
   </div>
 
   <!-- 1ラウンド -->
-  <div style="float: right;width: 105px;height:500px;">
+  <div style="float: right;width: 95px;height:500px;">
     <% @matches.where(round: 1).order(:id).offset(32).limit(32).each do |match| %>
     <div style="margin-top:30px;height:90px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
@@ -115,14 +115,14 @@
       <% if match.id%2==0 %>
       <div style="border-left:solid;border-top:solid;height:90px;width:10px;position:relative;top:-10px;left:-15px;"></div>
       <% else %>
-      <div style="border-left:solid;border-bottom:solid;height:90px;width:10px;position:relative;top:-105px;left:-15px;"></div>
+      <div style="border-left:solid;border-bottom:solid;height:90px;width:10px;position:relative;top:-100px;left:-15px;"></div>
       <% end %>
     </div>
     <% end %>
   </div>
 
   <!-- 2ラウンド -->
-  <div style="float: right;width: 105px;height:500px;">
+  <div style="float: right;width: 95px;height:500px;">
     <% @matches.where(round: 2).order(:id).offset(16).limit(16).each do |match| %>
     <div style="margin-top:90px;height:150px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
@@ -137,7 +137,7 @@
   </div>
 
   <!-- 3ラウンド -->
-  <div style="float:right;width: 105px;height:500px;">
+  <div style="float:right;width: 95px;height:500px;">
     <% @matches.where(round: 3).order(:id).offset(8).limit(8).each do |match| %>
     <div style="margin-top: 210px;height:270px;">
       <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
@@ -152,7 +152,7 @@
   </div>
 
     <!-- 4ラウンド -->
-    <div style="float:right;width: 105px;height:500px;">
+    <div style="float:right;width: 95px;height:500px;">
       <% @matches.where(round: 4).order(:id).offset(4).limit(4).each do |match| %>
       <div style="margin-top: 450px;height:510px;">
         <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
@@ -170,7 +170,7 @@
     <div style="float:right;width: 105px;height:500px;">
       <% @matches.where(round: 5).order(:id).offset(2).limit(2).each do |match| %>
       <div style="margin-top: 940px;height:980px;">
-        <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>a
+        <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
 
       </div>
       <% end %>

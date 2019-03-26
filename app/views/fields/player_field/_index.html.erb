@@ -1,0 +1,6 @@
+<% if field.to_s %>
+<% player = SinglesPlayer.find_by(number: field.to_s) %>
+<%= player.number.to_s+" " if player.name !="BYE"%><%= player.name %>
+<% else %>
+-
+<% end %>

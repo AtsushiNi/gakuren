@@ -10,9 +10,9 @@ class MatchDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     singles_tournament_id: Field::Number,
-    young: Field::Number,
-    old: Field::Number,
-    winner_num: Field::Number,
+    young: PlayerField,
+    old: PlayerField,
+    winner_num: PlayerField,
     parent_id: ParentField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,

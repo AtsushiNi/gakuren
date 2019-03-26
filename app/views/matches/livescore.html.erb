@@ -1,0 +1,25 @@
+<h2 class="livescore-h2"><%= @tournament.name %></h2>
+<%= link_to "Draw","/draw", class:"livescore-tab" %>
+<%= link_to "OP","/livescore", class:"livescore-tab", style:"background-color:rgba(1,1,1,0.2);" %>
+<hr class="livescore-tab-line" />
+<% courts = courts(@tournament.courts).each_slice(5).to_a %>
+<% courts.each do |some_courts| %>
+<table class="livescore-courts">
+  <tr>
+    <% some_courts.each do |court| %>
+    <th>
+      <%= court %>
+    </th>
+    <% end %>
+  </tr>
+  <% (1..4).each do |turn| %>
+  <tr>
+    <% some_courts.each do |court| %>
+    <td class="livescore-td"><%= render partial: "livescore-match", locals: {turn: turn,court: court} %></td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
+<% end %>
+
+<%= render partial: "modal" %>

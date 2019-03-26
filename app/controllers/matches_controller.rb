@@ -1,6 +1,11 @@
 class MatchesController < ApplicationController
-  def index
-    @matches = Match.all
+  def draw
+    @tournament = SinglesTournament.first
+    @matches = @tournament.matches
+  end
+
+  def livescore
+    @tournament = SinglesTournament.first
   end
 
   def edit
@@ -9,7 +14,8 @@ class MatchesController < ApplicationController
 
   # 試合開始
   def start
-    @match = Match.find(params[:id])
+    tournament = SinglesTournament.first
+    @match = tournament.matches.find(params[:id])
     start_time = Time.zone.now
     @match.update_attributes(status: "Playing", start_time: start_time, score: "0-0set-set-", ready: false)
     redirect_to livescore_path
@@ -17,7 +23,7 @@ class MatchesController < ApplicationController
 
   # スコアアップデート
   def update
-    @match = Match.find(params[:match_num])
+    @match = SinglesTournament.matches.find(params[:match_num])
     @match.update_attributes(score: get_score)
     if (winner = @match.finish?)
       @match.update_attributes(winner_num: winner, status: "Completed", finish_time: Time.zone.now)

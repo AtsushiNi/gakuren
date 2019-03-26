@@ -1,13 +1,13 @@
-<h2 class="draw-h2"><%= SinglesTournament.find(@matches.first.singles_tournament_id).name %></h2>
+<h2 class="draw-h2"><%= @tournament.name %></h2>
 
-<%= link_to "Draw","/matches", class:"draw-tab", style:"background-color:rgba(1,1,1,0.2);" %>
+<%= link_to "Draw","/draw", class:"draw-tab", style:"background-color:rgba(1,1,1,0.2);" %>
 <%= link_to "OP","/livescore", class:"draw-tab" %>
 <hr class="draw-tab-line" />
 
 <div style="height: 4000px;font-size:10px;">
   <!-- プレイヤーリスト -->
   <div style="float: left;width: 125px;height:500px;">
-    <% SinglesPlayer.all.order(:number).limit(64).each do |player| %>
+    <% @tournament.singles_players.order(:number).limit(64).each do |player| %>
     <div style="height:60px;">
       <%= player.number %><%= player.name %><%="("+player.college+")" if player.college %>
 
@@ -24,7 +24,7 @@
   <div style="float: left;width: 105px;height:500px;">
     <% @matches.where(round: 1).order(:id).limit(32).each do |match| %>
     <div style="margin-top:30px;height:90px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id%2==0 %>
       <div style="border-right:solid;border-top:solid;height:90px;width:10px;position:relative;top:-10px;left:90px;"></div>
@@ -39,7 +39,7 @@
   <div style="float: left;width: 105px;height:500px;">
     <% @matches.where(round: 2).order(:id).limit(16).each do |match| %>
     <div style="margin-top:90px;height:150px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id % 2 == 0 %>
       <div style="border-right:solid;border-top:solid;height:180px;width:10px;position:relative;top:-10px;left:90px;"></div>
@@ -54,7 +54,7 @@
   <div style="float:left;width: 105px;height:500px;">
     <% @matches.where(round: 3).order(:id).limit(8).each do |match| %>
     <div style="margin-top: 210px;height:270px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id % 2 == 0 %>
       <div style="border-right:solid;border-top:solid;height:250px;width:10px;position:relative;top:-10px;left:90px;"></div>
@@ -69,7 +69,7 @@
   <div style="float:left;width: 105px;height:500px;">
     <% @matches.where(round: 4).order(:id).limit(4).each do |match| %>
     <div style="margin-top: 450px;height:510px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id % 2 == 0 %>
       <div style="border-right:solid;border-top:solid;height:550px;width:10px;position:relative;top:-10px;left:90px;"></div>
@@ -84,7 +84,7 @@
   <div style="float:left;width: 105px;height:500px;">
     <% @matches.where(round: 5).order(:id).limit(2).each do |match| %>
     <div style="margin-top: 940px;height:980px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
     </div>
     <% end %>
@@ -93,7 +93,7 @@
 
   <!-- プレイヤーリスト -->
   <div style="float: right;width: 125px;height:500px;">
-    <% SinglesPlayer.all.order(:number).offset(64).limit(64).each do |player| %>
+    <% @tournament.singles_players.order(:number).offset(64).limit(64).each do |player| %>
     <div style="height:60px;">
       <%= player.number %><%= player.name %><%="("+player.college+")" if player.college %>
 
@@ -110,7 +110,7 @@
   <div style="float: right;width: 95px;height:500px;">
     <% @matches.where(round: 1).order(:id).offset(32).limit(32).each do |match| %>
     <div style="margin-top:30px;height:90px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id%2==0 %>
       <div style="border-left:solid;border-top:solid;height:90px;width:10px;position:relative;top:-10px;left:-15px;"></div>
@@ -125,7 +125,7 @@
   <div style="float: right;width: 95px;height:500px;">
     <% @matches.where(round: 2).order(:id).offset(16).limit(16).each do |match| %>
     <div style="margin-top:90px;height:150px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id % 2 == 0 %>
       <div style="border-left:solid;border-top:solid;height:180px;width:10px;position:relative;top:-10px;left:-15px;"></div>
@@ -140,7 +140,7 @@
   <div style="float:right;width: 95px;height:500px;">
     <% @matches.where(round: 3).order(:id).offset(8).limit(8).each do |match| %>
     <div style="margin-top: 210px;height:270px;">
-      <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
       <% if match.id % 2 == 0 %>
       <div style="border-left:solid;border-top:solid;height:250px;width:10px;position:relative;top:-10px;left:-15px;"></div>
@@ -155,7 +155,7 @@
     <div style="float:right;width: 95px;height:500px;">
       <% @matches.where(round: 4).order(:id).offset(4).limit(4).each do |match| %>
       <div style="margin-top: 450px;height:510px;">
-        <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+        <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
         <% if match.id % 2 == 0 %>
         <div style="border-left:solid;border-top:solid;height:550px;width:10px;position:relative;top:-10px;left:-15px;"></div>
@@ -170,7 +170,7 @@
     <div style="float:right;width: 105px;height:500px;">
       <% @matches.where(round: 5).order(:id).offset(2).limit(2).each do |match| %>
       <div style="margin-top: 940px;height:980px;">
-        <%= match.id %><%= SinglesPlayer.find_by(number: match.winner_num).name if match.winner_num %>
+        <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
 
       </div>
       <% end %>
@@ -201,7 +201,7 @@
       <% end %>
       <td style="width: 150px;">
         <%= num %>
-        <%= SinglesPlayer.find_by(number: (@matches.find(num).winner_num)).name if @matches.find(num).winner_num %>
+        <%= @tournament.singles_players.find_by(number: (@matches.find(num).winner_num)).name if @matches.find(num).winner_num %>
       </td>
       <% end %>
     </tr>

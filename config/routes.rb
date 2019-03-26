@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :news
   resources :members
   resources :colleges
+  resources :rankings, :only => [:index, :show]
 
   get 'colleges/:id/competent/edit', to: 'colleges#competent_edit', as: :competent
   get 'colleges/:id/competent/entry', to: 'colleges#competent_entry'

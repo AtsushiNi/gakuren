@@ -1,3 +1,20 @@
 // Place all the styles related to the Rankings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2.index-h2 {
+  color: purple;
+  margin: 50px 0 0 10px;
+}
+
+p.index-day {
+  font-size: 12px;
+  font-weight: bolder;
+  margin: 22px 0 5px 25px;
+}
+
+p.index-content {
+  margin: 5px 0 5px 20px;
+  padding-bottom: 30px;
+  border-bottom: solid 1px purple;
+}

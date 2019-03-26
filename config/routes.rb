@@ -8,6 +8,8 @@ namespace :admin do
   resources :members
   resources :colleges
   resources :matches
+  resources :singles_tournaments
+  resources :singles_players
   root to: "members#index"
 end
 root 'top#home'

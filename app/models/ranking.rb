@@ -32,6 +32,23 @@ class Ranking < ApplicationRecord
     return data
   end
 
+  #ランキングデータ(文字列)をハッシュの配列に変換
+  def to_a
+    data = []
+    self.data.split(";").each do |ranker|
+      ranker_data = ranker.split(":")
+      hash = {name:ranker_data[0], college:ranker_data[1],total:ranker_data[8].to_i}
+      hash[:春関] = ranker_data[2].to_i if ranker_data[2] != ""
+      hash[:インカレ] = ranker_data[3].to_i if ranker_data[3] != ""
+      hash[:インドア] = ranker_data[4].to_i if ranker_data[4] != ""
+      hash[:夏関] = ranker_data[5].to_i if ranker_data[5] != ""
+      hash[:新進] = ranker_data[6].to_i if ranker_data[6] != ""
+      hash[:全日本] = ranker_data[7].to_i if ranker_data[7] != ""
+      data.push(hash)
+    end
+    data
+  end
+
   private
 
   #選手とポイントの登録

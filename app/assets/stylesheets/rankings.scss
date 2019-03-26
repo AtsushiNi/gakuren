@@ -2,9 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h2.index-h2 {
+h2.index-h2, .show-h2 {
   color: purple;
   margin: 50px 0 0 10px;
+}
+
+a.index-backButton {
+  float: right;
+  margin-right: 10px;
+  margin-top: 15px;
+  border: solid 3px purple;
+  border-radius: 7px;
+  padding: 5px 14px;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(191, 85, 236, 0.2);
 }
 
 p.index-day {

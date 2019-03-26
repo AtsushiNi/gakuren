@@ -1,0 +1,74 @@
+<%= link_to "Back", rankings_path, class:"index-backButton" %>
+<h2 class="show-h2">ポイントランキング(<%= @ranking.created_at.strftime("%Y-%m-%d") %>)</h2>
+<h4>ranking(<%= @ranking.created_at.strftime("%Y-%m-%d") %>)</h4>
+
+<table style="border-collapse:collapse;margin:10px;">
+  <tr style="border:solid 1px;">
+    <th style="border:solid 1px;width:40px;">
+      順位
+    </th>
+    <th style="border:solid 1px;width:120px;">
+      氏名
+    </th>
+    <th style="border:solid 1px;width:70px;">
+      大学名
+    </th>
+    <th style="border:solid 1px;width:80px;">
+      春関
+    </th>
+    <th style="border:solid 1px;width:80px;">
+      インカレ
+    </th>
+    <th style="border:solid 1px;width:80px;">
+      インドア
+    </th>
+    <th style="border:solid 1px;width:80px;">
+      夏関
+    </th>
+    <th style="border:solid 1px;width:80px;">
+      新進
+    </th>
+    <th style="border:solid 1px;width:80px;">
+      全日本
+    </th>
+    <th style="border:solid 1px;width:80px;">
+      総ポイント
+    </th>
+  </tr>
+  <% rank =1 %>
+  <% @data.each_with_index do |ranker, i| %>
+  <tr style="border:solid 1px;">
+    <td style="border:solid 1px;text-align:center;">
+      <%= rank if rank == 1 || ranker[:total] != @data[i-1][:total] %>
+      <% rank += 1 %>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:name]%>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:college] %>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:春関] %>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:インカレ] %>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:インドア] %>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:夏関] %>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:新進] %>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:全日本] %>
+    </td>
+    <td style="border:solid 1px;">
+      <%= ranker[:total] %>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -1,6 +1,6 @@
 class Ranking < ApplicationRecord
   def calcurate(tournaments)
-    data = [{}] #ランキングの情報
+    data=[] #ランキングの情報
     tournaments.each do |tournament|
       distribution = {} # {勝利ラウンド:獲得ポイント}
       if tournament.name.index("春関") != nil
@@ -14,7 +14,18 @@ class Ranking < ApplicationRecord
       end
     end
 
-    data
+    #トータルポイントの計算
+    data.each do |ranker|
+      ranker[:total] = ranker[:春関] if ranker[:春関]
+      ranker[:total] = ranker[:total] + ranker[:インカレ] if ranker[:インカレ]
+      ranker[:total] = ranker[:total] + ranker[:インドア] if ranker[:インドア]
+      ranker[:total] = ranker[:total] + ranker[:夏関] if ranker[:夏関]
+      ranker[:total] = ranker[:total] + ranker[:新進] if ranker[:新進]
+      ranker[:total] = ranker[:total] + ranker[:全日本] if ranker[:全日本]
+    end
+    #トータルポイントの高い順にソート
+    p data
+    data.sort_by{|a| a[:total] }.reverse
   end
 
   private
@@ -28,7 +39,7 @@ class Ranking < ApplicationRecord
           if (pointRanker = data.find{|ranker| ranker[:name] == winner.name && ranker[:college] == winner.college}) #この選手がdataにすでに登録済みの場合はポイントを登録
             pointRanker[distribution[:type].to_sym] = distribution[i]
           else #この選手とポイントを登録
-            data.push({name:winner.name, college:winner.college, distribution[:type].to_sym => distribution[i]})
+            data.push({name:winner.name, college:winner.college, distribution[:type].to_sym => distribution[i], total:0})
           end
         end
       end

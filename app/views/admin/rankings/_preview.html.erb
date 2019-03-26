@@ -5,10 +5,13 @@
     <hr style="color:rgba(1,1,1,0.1);margin-top:0;"/>
     <table style="border-collapse:collapse;margin:10px;">
       <tr style="border:solid 1px;">
+        <th style="border:solid 1px;width:40px;">
+          順位
+          </th>
         <th style="border:solid 1px;width:120px;">
           氏名
         </th>
-        <th style="border:solid 1px;width:120px;">
+        <th style="border:solid 1px;width:70px;">
           大学名
         </th>
         <th style="border:solid 1px;width:80px;">
@@ -29,9 +32,17 @@
         <th style="border:solid 1px;width:80px;">
           全日本
         </th>
+        <th style="border:solid 1px;width:80px;">
+          総ポイント
+        </th>
       </tr>
-      <% result.each do |ranker| %>
+      <% rank =1 %>
+      <% result.each_with_index do |ranker, i| %>
       <tr style="border:solid 1px;">
+        <td style="border:solid 1px;text-align:center;">
+          <%= rank if rank == 1 || ranker[:total] != result[i-1][:total] %>
+          <% rank += 1 %>
+          </td>
         <td style="border:solid 1px;">
           <%= ranker[:name]%>
         </td>
@@ -56,6 +67,9 @@
         <td style="border:solid 1px;">
           <%= ranker[:全日本] %>
         </td>
+        <td style="border:solid 1px;">
+          <%= ranker[:total] %>
+          </td>
       </tr>
       <% end %>
     </table>

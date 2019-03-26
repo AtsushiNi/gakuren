@@ -1,0 +1,45 @@
+<div style="background-color: rgba(1,1,1,0.2)" class="aho">
+  <div>
+    <table>
+      <tr>
+        <th>
+          氏名
+        </th>
+        <th>
+          大学名
+        </th>
+        <th>
+          春関
+        </th>
+        <th>
+          インカレ
+        </th>
+        <th>
+          インドア
+        </th>
+        <th>
+          夏関
+        </th>
+        <th>
+          新進
+        </th>
+        <th>
+          全日本
+        </th>
+      </tr>
+      <% result.each do |ranker| %>
+      <tr>
+        <td>
+          <%= ranker[:name]%>
+        </td>
+        <td>
+          <%= ranker[:college] %>
+        </td>
+        <td>
+          <%= ranker[:春関] %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

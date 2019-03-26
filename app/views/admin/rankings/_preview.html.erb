@@ -1,41 +1,63 @@
-<table>
-  <tr>
-    <th>
-      氏名
-    </th>
-    <th>
-      大学名
-    </th>
-    <th>
-      春関
-    </th>
-    <th>
-      インカレ
-    </th>
-    <th>
-      インドア
-    </th>
-    <th>
-      夏関
-    </th>
-    <th>
-      新進
-    </th>
-    <th>
-      全日本
-    </th>
-  </tr>
-  <% result.each do |ranker| %>
-  <tr>
-    <td>
-      <%= ranker[:name]%>
-    </td>
-    <td>
-      <%= ranker[:college] %>
-    </td>
-    <td>
-      <%= ranker[:春関] %>
-      </td>
-  </tr>
-  <% end %>
-</table>
+<div style="background-color: rgba(1,1,1,0.1);width:100%;position:absolute;top:0;left:0;">
+  <div style="margin:10px 10px;border: 1px solid silver;border-radius:5px;background-color:white;box-shadow:0 0 10px silver;">
+    <h2 style="margin:20px;display:inline-block;">Preview</h2>
+    <%= link_to "Back",new_admin_ranking_path,style:"float:right;color: white;background-color: royalblue;border-radius: 3px;border: 0;margin:20px;margin-bottom:0;padding: 10px 30px 10px 30px;font-weight:bold;font-size:16px;"%>
+    <hr style="color:rgba(1,1,1,0.1);margin-top:0;"/>
+    <table style="border-collapse:collapse;margin:10px;">
+      <tr style="border:solid 1px;">
+        <th style="border:solid 1px;width:120px;">
+          氏名
+        </th>
+        <th style="border:solid 1px;width:120px;">
+          大学名
+        </th>
+        <th style="border:solid 1px;width:80px;">
+          春関
+        </th>
+        <th style="border:solid 1px;width:80px;">
+          インカレ
+        </th>
+        <th style="border:solid 1px;width:80px;">
+          インドア
+        </th>
+        <th style="border:solid 1px;width:80px;">
+          夏関
+        </th>
+        <th style="border:solid 1px;width:80px;">
+          新進
+        </th>
+        <th style="border:solid 1px;width:80px;">
+          全日本
+        </th>
+      </tr>
+      <% result.each do |ranker| %>
+      <tr style="border:solid 1px;">
+        <td style="border:solid 1px;">
+          <%= ranker[:name]%>
+        </td>
+        <td style="border:solid 1px;">
+          <%= ranker[:college] %>
+        </td>
+        <td style="border:solid 1px;">
+          <%= ranker[:春関] %>
+        </td>
+        <td style="border:solid 1px;">
+          <%= ranker[:インカレ] %>
+        </td>
+        <td style="border:solid 1px;">
+          <%= ranker[:インドア] %>
+        </td>
+        <td style="border:solid 1px;">
+          <%= ranker[:夏関] %>
+        </td>
+        <td style="border:solid 1px;">
+          <%= ranker[:新進] %>
+        </td>
+        <td style="border:solid 1px;">
+          <%= ranker[:全日本] %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

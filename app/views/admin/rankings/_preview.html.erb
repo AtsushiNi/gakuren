@@ -7,7 +7,7 @@
       <tr style="border:solid 1px;">
         <th style="border:solid 1px;width:40px;">
           順位
-          </th>
+        </th>
         <th style="border:solid 1px;width:120px;">
           氏名
         </th>
@@ -42,7 +42,7 @@
         <td style="border:solid 1px;text-align:center;">
           <%= rank if rank == 1 || ranker[:total] != result[i-1][:total] %>
           <% rank += 1 %>
-          </td>
+        </td>
         <td style="border:solid 1px;">
           <%= ranker[:name]%>
         </td>
@@ -69,9 +69,15 @@
         </td>
         <td style="border:solid 1px;">
           <%= ranker[:total] %>
-          </td>
+        </td>
       </tr>
       <% end %>
     </table>
+
+    <%= form_for @ranking, url:"/admin/rankings" do |f| %>
+    <%= f.hidden_field :data, value:@ranking.data %>
+    <%= f.hidden_field :tournaments, value:@ranking.tournaments %>
+    <%= f.submit "Create" %>
+    <% end %>
   </div>
 </div>

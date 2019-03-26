@@ -18,11 +18,6 @@ module Admin
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
 
-    def create
-      p params
-      p "あいう"
-      redirect_to "/admin/rankings"
-    end
 
     def calculate
       @ranking = Ranking.new

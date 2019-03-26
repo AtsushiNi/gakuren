@@ -24,8 +24,12 @@ class Ranking < ApplicationRecord
       ranker[:total] = ranker[:total] + ranker[:全日本] if ranker[:全日本]
     end
     #トータルポイントの高い順にソート
-    p data
-    data.sort_by{|a| a[:total] }.reverse
+    data.sort_by!{|a| a[:total] }.reverse!
+
+    #文字列に変換,data属性に登録(DBへの保存はまだしない)
+    self.data = to_s(data)
+
+    return data
   end
 
   private
@@ -44,6 +48,28 @@ class Ranking < ApplicationRecord
         end
       end
     end
+  end
+
+  #ランキングデータ(ハッシュの配列)を文字列に変換
+  def to_s(data)
+    string = ""
+    data.each do |ranker|
+      string = string + ranker[:name] + ":" + ranker[:college] + ":"
+      string = string + ranker[:春関].to_s if ranker[:春関]
+      string = string + ":"
+      string = string + ranker[:インカレ].to_s if ranker[:インカレ]
+      string = string + ":"
+      string = string + ranker[:インドア].to_s if ranker[:インドア]
+      string = string + ":"
+      string = string + ranker[:夏関].to_s if ranker[:夏関]
+      string = string + ":"
+      string = string + ranker[:新進].to_s if ranker[:新進]
+      string = string + ":"
+      string = string + ranker[:全日本].to_s if ranker[:全日本]
+      string = string + ":"
+      string = string + ranker[:total].to_s + ";"
+    end
+    string
   end
 
 end

@@ -7,6 +7,7 @@ namespace :admin do
   resources :news
   resources :members
   resources :colleges
+  resources :matches
   root to: "members#index"
 end
 root 'top#home'

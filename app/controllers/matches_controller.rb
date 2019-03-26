@@ -23,7 +23,7 @@ class MatchesController < ApplicationController
 
   # スコアアップデート
   def update
-    @match = SinglesTournament.matches.find(params[:match_num])
+    @match = SinglesTournament.first.matches.find(params[:match_num])
     @match.update_attributes(score: get_score)
     if (winner = @match.finish?)
       @match.update_attributes(winner_num: winner, status: "Completed", finish_time: Time.zone.now)

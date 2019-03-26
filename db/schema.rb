@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_035527) do
+ActiveRecord::Schema.define(version: 2019_03_26_153435) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 2019_03_25_035527) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "visible"
+  end
+
+  create_table "rankings", force: :cascade do |t|
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tournaments"
   end
 
   create_table "roots", force: :cascade do |t|

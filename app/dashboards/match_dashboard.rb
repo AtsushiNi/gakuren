@@ -13,7 +13,7 @@ class MatchDashboard < Administrate::BaseDashboard
     young: Field::Number,
     old: Field::Number,
     winner_num: Field::Number,
-    parent_id: Field::Number,
+    parent_id: ParentField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     round: Field::Number,

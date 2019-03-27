@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :news, :only => :index
   resources :members, :only => :index
   resources :rankings, :only => [:index, :show]
+  resources :singles_tournaments, :only => [:index, :show]
   resources :colleges, :only => :index
 
   #主務アカウント

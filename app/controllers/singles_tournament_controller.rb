@@ -1,2 +1,0 @@
-class SinglesTournamentController < ApplicationController
-end

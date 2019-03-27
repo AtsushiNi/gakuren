@@ -1,0 +1,176 @@
+<%= link_to "Back", singles_tournaments_path, class:"singles_tournaments-show-backButton"%>
+<h2 class="draw-h2"><%= @tournament.name %></h2>
+
+<div style="height: 4000px;font-size:10px;">
+  <!-- プレイヤーリスト -->
+  <div style="float: left;width: 125px;height:500px;">
+    <% @tournament.singles_players.order(:number).limit(64).each do |player| %>
+    <div style="height:60px;">
+      <%= player.number %><%= player.name %><%="("+player.college+")" if player.college %>
+
+      <% if player.number%2==1 %>
+      <div style="border-right:solid;border-top:solid;height:45px;width:10px;position:relative;top:-10px;left:110px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:45px;width:10px;position:relative;top:-55px;left:110px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 1ラウンド -->
+  <div style="float: left;width: 105px;height:500px;">
+    <% @tournament.matches.where(round: 1).order(:id).limit(32).each do |match| %>
+    <div style="margin-top:30px;height:90px;">
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id%2==0 %>
+      <div style="border-right:solid;border-top:solid;height:90px;width:10px;position:relative;top:-10px;left:90px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:90px;width:10px;position:relative;top:-105px;left:90px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 2ラウンド -->
+  <div style="float: left;width: 105px;height:500px;">
+    <% @tournament.matches.where(round: 2).order(:id).limit(16).each do |match| %>
+    <div style="margin-top:90px;height:150px;">
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-right:solid;border-top:solid;height:180px;width:10px;position:relative;top:-10px;left:90px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:180px;width:10px;position:relative;top:-190px;left:90px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 3ラウンド -->
+  <div style="float:left;width: 105px;height:500px;">
+    <% @tournament.matches.where(round: 3).order(:id).limit(8).each do |match| %>
+    <div style="margin-top: 210px;height:270px;">
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-right:solid;border-top:solid;height:250px;width:10px;position:relative;top:-10px;left:90px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:250px;width:10px;position:relative;top:-260px;left:90px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 4ラウンド -->
+  <div style="float:left;width: 105px;height:500px;">
+    <% @tournament.matches.where(round: 4).order(:id).limit(4).each do |match| %>
+    <div style="margin-top: 450px;height:510px;">
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-right:solid;border-top:solid;height:550px;width:10px;position:relative;top:-10px;left:90px;"></div>
+      <% else %>
+      <div style="border-right:solid;border-bottom:solid;height:550px;width:10px;position:relative;top:-560px;left:90px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 5ラウンド -->
+  <div style="float:left;width: 105px;height:500px;">
+    <% @tournament.matches.where(round: 5).order(:id).limit(2).each do |match| %>
+    <div style="margin-top: 940px;height:980px;">
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+    </div>
+    <% end %>
+  </div>
+
+
+  <!-- プレイヤーリスト -->
+  <div style="float: right;width: 125px;height:500px;">
+    <% @tournament.singles_players.order(:number).offset(64).limit(64).each do |player| %>
+    <div style="height:60px;">
+      <%= player.number %><%= player.name %><%="("+player.college+")" if player.college %>
+
+      <% if player.number%2==1 %>
+      <div style="border-left:solid;border-top:solid;height:45px;width:10px;position:relative;top:-10px;left:-15px;"></div>
+      <% else %>
+      <div style="border-left:solid;border-bottom:solid;height:45px;width:10px;position:relative;top:-55px;left:-15px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 1ラウンド -->
+  <div style="float: right;width: 95px;height:500px;">
+    <% @tournament.matches.where(round: 1).order(:id).offset(32).limit(32).each do |match| %>
+    <div style="margin-top:30px;height:90px;">
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id%2==0 %>
+      <div style="border-left:solid;border-top:solid;height:90px;width:10px;position:relative;top:-10px;left:-15px;"></div>
+      <% else %>
+      <div style="border-left:solid;border-bottom:solid;height:90px;width:10px;position:relative;top:-100px;left:-15px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 2ラウンド -->
+  <div style="float: right;width: 95px;height:500px;">
+    <% @tournament.matches.where(round: 2).order(:id).offset(16).limit(16).each do |match| %>
+    <div style="margin-top:90px;height:150px;">
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-left:solid;border-top:solid;height:180px;width:10px;position:relative;top:-10px;left:-15px;"></div>
+      <% else %>
+      <div style="border-left:solid;border-bottom:solid;height:180px;width:10px;position:relative;top:-190px;left:-15px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 3ラウンド -->
+  <div style="float:right;width: 95px;height:500px;">
+    <% @tournament.matches.where(round: 3).order(:id).offset(8).limit(8).each do |match| %>
+    <div style="margin-top: 210px;height:270px;">
+      <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+      <% if match.id % 2 == 0 %>
+      <div style="border-left:solid;border-top:solid;height:250px;width:10px;position:relative;top:-10px;left:-15px;"></div>
+      <% else %>
+      <div style="border-left:solid;border-bottom:solid;height:250px;width:10px;position:relative;top:-260px;left:-15px;"></div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+    <!-- 4ラウンド -->
+    <div style="float:right;width: 95px;height:500px;">
+      <% @tournament.matches.where(round: 4).order(:id).offset(4).limit(4).each do |match| %>
+      <div style="margin-top: 450px;height:510px;">
+        <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+        <% if match.id % 2 == 0 %>
+        <div style="border-left:solid;border-top:solid;height:550px;width:10px;position:relative;top:-10px;left:-15px;"></div>
+        <% else %>
+        <div style="border-left:solid;border-bottom:solid;height:550px;width:10px;position:relative;top:-560px;left:-15px;"></div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+    <!-- 5ラウンド -->
+    <div style="float:right;width: 105px;height:500px;">
+      <% @tournament.matches.where(round: 5).order(:id).offset(2).limit(2).each do |match| %>
+      <div style="margin-top: 940px;height:980px;">
+        <%= match.id %><%= @tournament.singles_players.find_by(number: match.winner_num).name if match.winner_num %>
+
+      </div>
+      <% end %>
+    </div>
+
+</div>

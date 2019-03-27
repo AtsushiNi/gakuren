@@ -1,7 +1,6 @@
 // Place all the styles related to the Matches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 h2.draw-h2 {
   border-bottom: 4px solid purple;
   margin: 30px auto 30px 10px;
@@ -26,4 +25,186 @@ h2.draw-h2 {
   margin-top: 0;
   background-color: black;
   height: 2px;
+}
+
+//ライブスコア
+
+h2.livescore-h2 {
+  border-bottom: 4px solid purple;
+  margin: 30px auto 30px 10px;
+}
+
+.livescore-tab {
+  display: inline-block;
+  width: 80px;
+  height: 35px;
+  margin-left: 5px;
+  border: solid 1px black;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+}
+
+.livescore-tab-line {
+  margin-top: 0;
+  background-color: black;
+  height: 2px;
+}
+
+.livescore-td {
+  position: relative;
+  overflow: hidden;
+  padding-left: 7px;
+  height: 70px;
+}
+
+button.livescore-start-button {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  html: none;
+  height: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 2px;
+  background-color: rgba(128,0,128,0.9);
+  &:hover {
+  }
+}
+
+table.livescore-courts {
+  margin-bottom: 30px;
+}
+
+table.livescore-match-playing {
+  border-collapse: collapse;
+  width: 225px;
+  margin: 3px;
+  &:hover {
+    box-shadow: 2px 2px 5px rgba(128, 0, 128, 0.5);
+    transition: 0.15s all linear 0s;
+  }
+  tr {
+    height: 30px;
+  }
+}
+table.livescore-match {
+  border-collapse: collapse;
+  margin: 3px;
+  width: 225px;
+  &:hover {
+    transition: 0.15s all linear 0s;
+  }
+  tr {
+    height: 30px;
+  }
+}
+
+span.livescore-college {
+  float: right;
+  padding-right: 2px;
+}
+
+span.livescore-player-name {
+  padding-left: 2px;
+}
+
+td.livescore-player {
+  border: solid 1px silver;
+  font-size: 10px;
+  width: 140px;
+}
+
+td.livescore-score {
+  border: solid 1px silver;
+  width: 18px;
+  text-align:center;
+}
+
+span.livescore-player-num {
+  display: inline-block;
+  width: 25px;
+}
+
+tr.livescore-match-status {
+  border: 1px solid silver;
+  font-size: 10px;
+}
+
+span.livescore-match-statusLabel {
+  padding: 2px;
+  margin-left: 2px;
+  background-color: purple;
+  color: white;
+}
+
+div#livescore-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  z-index: 1;
+}
+
+div#livescore-modal {
+  width: 550px;
+  height: 350px;
+  position: fixed;
+  border: solid 0.1px silver;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  background-color: white;
+  display: none;
+  z-index: 2;
+}
+
+table.modal-match {
+  border-collapse: collapse;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+td.modal-player {
+  border: solid 1px silver;
+  font-size: 12px;
+  width: 240px;
+}
+
+td.modal-score {
+  border: solid 1px silver;
+  width: 80px;
+  text-align:center;
+}
+
+button.modal-controlButton {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  background-color: royalblue;
+  color: white;
+  font-weight: bold;
+}
+
+input.modal-submitButton {
+  color: white;
+  background-color: royalblue;
+  border-radius: 3px;
+  border: 0;
+  margin-bottom: 50px;
+  padding: 10px 30px 10px 30px;
+  margin: 30px 20px 50px 420px;
 }

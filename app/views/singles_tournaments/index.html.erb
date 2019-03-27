@@ -1,0 +1,7 @@
+<h2 class="index-h2">過去の大会結果</h2>
+<h4>results</h4>
+<% @tournaments.each do |tournament| %>
+  <p class="singles_tournaments-index-name" >
+    <%= link_to tournament.name, tournament %>
+  </p>
+<% end %>

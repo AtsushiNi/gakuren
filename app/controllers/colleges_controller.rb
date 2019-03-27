@@ -5,7 +5,11 @@ class CollegesController < ApplicationController
     @colleges = College.all
   end
 
-  def update
+  def competent_edit
+    @college = College.find(params[:id])
+  end
+
+  def competent_update
     @college = College.find(params[:id])
     if @college.update_attributes(college_params)
       flash[:success] = "updated successfully"
@@ -14,10 +18,6 @@ class CollegesController < ApplicationController
       p @college.errors
       redirect_to competent_path
     end
-  end
-
-  def competent_edit
-    @college = College.find(params[:id])
   end
 
   def competent_entry

@@ -17,7 +17,7 @@
   <button class="modal-controlButton" id="11up">+</button>
   <button class="modal-controlButton" id="12down">-</button>
   <button class="modal-controlButton" id="12up">+</button><br />
-  <%= form_tag("/match", method: :post) do %>
+  <%= form_tag("/livescore/update", method: :post) do %>
   <%= hidden_field_tag :"match_num" %>
   <%= hidden_field_tag :"00" %>
   <%= hidden_field_tag :"01" %>

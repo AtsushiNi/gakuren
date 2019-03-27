@@ -3,7 +3,7 @@
 
   <div class="competent-main">
     <h2 class="competent-main">大学情報編集</h2>
-    <%= form_for @college do |f| %>
+    <%= form_for @college, url: competent_update_path do |f| %>
     <table>
       <tr>
         <th class="competent-edit"><%= f.label :name %></th>

@@ -8,10 +8,6 @@ class MatchesController < ApplicationController
     @tournament = SinglesTournament.first
   end
 
-  def edit
-    @match = Match.find(params[:id])
-  end
-
   # 試合開始
   def start
     tournament = SinglesTournament.first
@@ -22,7 +18,7 @@ class MatchesController < ApplicationController
   end
 
   # スコアアップデート
-  def update
+  def scorepdate
     @match = SinglesTournament.first.matches.find(params[:match_num])
     @match.update_attributes(score: get_score)
     if (winner = @match.finish?)

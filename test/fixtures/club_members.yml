@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  college_id: 1
+  name: MyString
+  addmission_year: 1
+
+two:
+  college_id: 1
+  name: MyString
+  addmission_year: 1

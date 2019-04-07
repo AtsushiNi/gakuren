@@ -16,7 +16,7 @@ class CollegesController < ApplicationController
       redirect_to "/colleges/#{@college.id}/competent/edit"
     else
       p @college.errors
-      redirect_to competent_path
+      redirect_to competent_edit_path
     end
   end
 

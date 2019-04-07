@@ -1,0 +1,47 @@
+// Place all the styles related to the club_members controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a.competent-club_members-h2Button {
+  float: right;
+  padding: 10px 30px;
+  border-radius: 3px;
+  color: white;
+  background-color: royalblue;
+  font-size: 13px;
+  text-decoration: none;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+table.competent-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+tr.competent-td_row {
+  border-top: solid 1px rgba(1,1,1,0.3);
+  border-bottom: solid 1px rgba(1,1,1,0.3);
+}
+
+th.competent-th {
+  text-align: left;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+td.competent-td {
+  padding: 15px 30px;
+}
+
+a.competent-edit {
+  text-decoration: none;
+  color: black;
+}
+
+a.competent-destroy {
+  text-decoration: none;
+  color: red;
+}

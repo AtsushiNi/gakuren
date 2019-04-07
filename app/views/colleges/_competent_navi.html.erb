@@ -1,4 +1,5 @@
 <ul class="competent-navi">
   <li><%= link_to "基本情報編集", "/colleges/#{@college.id}/competent/edit", class: "competent-list-link#{", competent-current" if current_page?(controller: "colleges", action: "competent_edit")}" %></li>
+  <li><%= link_to "選手登録", "/colleges/#{@college.id}/competent/club_members", class: "competent-list-link#{", competent-current" if current_page?(controller: "club_members", action: "index") || current_page?(controller: "club_members", action: "new")}" %></li>
   <li><%= link_to "エントリーページ", "/colleges/#{@college.id}/competent/entry", class: "competent-list-link#{", competent-current" if current_page?(controller: "colleges", action: "competent_entry")}" %></li>
 </ul>

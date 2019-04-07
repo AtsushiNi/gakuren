@@ -42,6 +42,26 @@ class SinglesTournament < ApplicationRecord
     bye_case
   end
 
+  def entry(college_name, members, checkboxes)
+    text = college_name
+    checkboxes.each do |name|
+      if name != ""
+        text += ":"+name
+      end
+    end
+    text += ";"
+
+    if self.entry_list != nil && (index = self.entry_list.index(college_name))
+      entry_list = self.entry_list
+      remove = entry_list.slice(index, self.entry_list.length - index).slice(/[^;]*;/)
+      entry_list.slice!(remove)
+      self.update_attributes(entry_list: entry_list + text)
+    else
+      self.update_attributes(entry_list: self.entry_list + text) if self.entry_list != nil
+      self.update_attributes(entry_list: text) if self.entry_list == nil
+    end
+  end
+
   private
 
   def draw_validate

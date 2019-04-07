@@ -2,6 +2,13 @@
   <%= render partial: 'competent_navi' %>
 
   <div class="competent-main">
-    <p>エントリーページ</p>
+    <h2 class="competent-main">エントリー</h2>
+
+    <% if @tournaments == [] %>
+    <p style="margin-left: 20px;">現在エントリーできる大会はありません</p>
+    <% end %>
+    <% @tournaments.each do |tournament| %>
+    <%= link_to tournament.name, "/colleges/#{@college.id}/competent/entry/#{tournament.id}", class:"competent-entry-select_tournament" %>
+    <% end %>
   </div>
 </div>

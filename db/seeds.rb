@@ -31,7 +31,7 @@ College.create(name: "京都産業大学女子部", men: false, email: "kyousan_
 Root.create(name: "root", email: "gakuren@gmail.com", password: "gakuren")
 
 # シングルス大会
-tournament = SinglesTournament.create(name: "平成31年度春関男子シングルス", draw: 128, courts: "0102030405061011")
+tournament = SinglesTournament.create(name: "平成31年度春関男子シングルス", draw: 128, courts: "0102030405061011", entry_start: DateTime.current.yesterday.beginning_of_day, entry_end: DateTime.current.next_month.end_of_day)
 
 tournament.singles_players.create(name: "竹元　佑亮", college: "関　大", number: 1)
 tournament.singles_players.create(name: "栗山　拓也", college: "関学大", number: 3)

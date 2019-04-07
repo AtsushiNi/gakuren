@@ -1,0 +1,15 @@
+<div class="competent-page">
+  <%= render partial: 'competent_navi' %>
+
+  <div class="competent-main">
+    <h2 class="competent-main">エントリー(<%= @tournament.name %>)</h2>
+
+    <%= form_tag({controller:'colleges', action: 'entry_create'}, method: :post) do %>
+    <%= collection_check_boxes :post, :members, @members, :name, :name, {checked: ["1"]}, class:"competent-entry-check_box" do |b| %>
+    <%= b.label { b.check_box + b.text } %>
+    <br />
+    <% end %>
+    <%= submit_tag "エントリー", class:"button", style:"margin: 20px;" %>
+    <% end %>
+  </div>
+</div>

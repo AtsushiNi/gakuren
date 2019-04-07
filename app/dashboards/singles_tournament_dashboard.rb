@@ -13,6 +13,9 @@ class SinglesTournamentDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     draw: Field::Number,
+    entry_start: Field::DateTime,
+    entry_end: Field::DateTime,
+    entry_list: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     courts: Field::String,
@@ -38,6 +41,9 @@ class SinglesTournamentDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :draw,
+    :entry_start,
+    :entry_end,
+    :entry_list,
     :created_at,
     :updated_at,
     :courts,
@@ -52,6 +58,9 @@ class SinglesTournamentDashboard < Administrate::BaseDashboard
     :name,
     :draw,
     :courts,
+    :entry_start,
+    :entry_end,
+    :entry_list
   ].freeze
 
   # Overwrite this method to customize how singles tournaments are displayed

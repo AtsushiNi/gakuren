@@ -22,8 +22,21 @@ class CollegesController < ApplicationController
 
   def competent_entry
     @college = College.find(params[:id])
+    @tournaments = SinglesTournament.where("entry_start < ?",Time.current).where("entry_end > ?",Time.current)
   end
 
+  def entry_new
+    @college = College.find(params[:college_id])
+    @tournament = SinglesTournament.find(params[:id])
+    @members = @college.club_members.order(:addmission_year)
+  end
+
+  def entry_create
+    @college = College.find(params[:college_id])
+    @tournament = SinglesTournament.find(params[:id])
+    @tournament.entry(@college.name, @college.club_members, params[:post][:members])
+    redirect_to "/colleges/#{@college.id}/competent/entry"
+  end
 
   private
 

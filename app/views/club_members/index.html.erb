@@ -2,6 +2,14 @@
   <%= render partial: 'colleges/competent_navi' %>
 
   <div class="competent-main">
+    <% if flash.any? %>
+    <div>
+      <% flash.each do |key, value| -%>
+        <div class="competent-flash-<%= key %>"><%= value.html_safe %></div>
+      <% end -%>
+    </div>
+    <% end %>
+
     <%= link_to "新規登録", "/colleges/#{@college.id}/competent/club_members/new", class:"competent-club_members-h2Button" %>
     <h2 class="competent-main">選手登録</h2>
 
@@ -25,10 +33,10 @@
           <%= member.name %>
         </td>
         <td>
-          <%= link_to "Edit", "/colleges/#{@college.id}/competent/club_members/edit", class:"competent-edit" %>
+          <%= link_to "Edit", "/colleges/#{@college.id}/competent/club_members/#{member.id}/edit", class:"competent-edit" %>
         </td>
         <td>
-          <%= link_to "Destroy", "/colleges/#{@college.id}/competent/club_members/destroy", class:"competent-destroy" %>
+          <%= link_to "Destroy", "/colleges/#{@college.id}/competent/club_members/#{member.id}/destroy", method: :delete, class:"competent-destroy" %>
         </td>
       </tr>
       <% end %>

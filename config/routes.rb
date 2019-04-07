@@ -39,4 +39,8 @@ Rails.application.routes.draw do
   get 'colleges/:id/competent/club_members', to: 'club_members#index'
   get 'colleges/:id/competent/club_members/new', to: 'club_members#new'
   post 'colleges/:id/competent/club_members/create', to: 'club_members#create'
+  get 'colleges/:college_id/competent/club_members/:id/edit', to: 'club_members#edit'
+  patch 'colleges/:college_id/competent/club_members/:id/update', to: 'club_members#update'
+  delete 'colleges/:college_id/competent/club_members/:id/destroy', to: 'club_members#destroy'
+
 end

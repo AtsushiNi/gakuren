@@ -19,6 +19,32 @@ class ClubMembersController < ApplicationController
     end
   end
 
+  def edit
+    @college = College.find(params[:college_id])
+    @club_member = @college.club_members.find(params[:id])
+  end
+
+  def update
+    college = College.find(params[:college_id])
+    @club_member = college.club_members.find(params[:id])
+    if @club_member.update_attributes(club_member_params)
+      redirect_to "/colleges/#{college.id}/competent/club_members"
+    else
+      render action: :edit
+    end
+  end
+
+  def destroy
+    @college = College.find(params[:college_id])
+    club_member = @college.club_members.find(params[:id])
+    if club_member.destroy
+      flash[:notice] = "Member was successfully destroyed."
+    else
+      flash[:error] = "Couldn't destroy member"
+    end
+    redirect_to request.referrer
+  end
+
   private
 
   def club_member_params

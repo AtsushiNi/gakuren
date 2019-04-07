@@ -87,6 +87,22 @@ div.competent-main {
   width: 80%
 }
 
+div.competent-flash-notice {
+  background-color: #e6efc2;
+  color: mix(black,#e6efc2,60%);
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div.competent-flash-error {
+  background-color: #fbe3e4;
+  color: mix(black,#fbe3e4,60%);
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 a.competent-list-link {
   display: block;
   width: 60%;

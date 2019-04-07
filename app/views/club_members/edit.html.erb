@@ -1,0 +1,38 @@
+<div class="competent-page">
+  <%= render partial: 'colleges/competent_navi' %>
+
+  <div class="competent-main">
+    <%= link_to "Back", "/colleges/#{@college.id}/competent/club_members", class:"competent-club_members-h2Button" %>
+    <h2 class="competent-main">登録編集</h2>
+
+    <%= form_for @club_member, url:"/colleges/#{@college.id}/competent/club_members/#{@club_member.id}/update" do |f| %>
+
+    <% if @club_member.errors.any? %>
+    <ul class="competent-flash-ul">
+      <% @club_member.errors.full_messages.each do |message| %>
+      <li class="competent-flash-error"><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+    <table>
+      <tr>
+        <th class="competent-edit">
+          名前
+        </th>
+        <td><%= f.text_field :name, class:"input" %></td>
+      </tr>
+      <tr>
+        <th class="competent-edit">
+          入学年度(西暦)
+        </th>
+        <td><%= f.number_field :addmission_year, class:"input" %></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><%= f.submit "変更",class:"button", style:"margin-top: 20px;" %></td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+</div>

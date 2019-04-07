@@ -11,10 +11,11 @@ class ClubMembersController < ApplicationController
 
   def create
     @college = College.find(params[:id])
-    if @college.club_members.create(club_member_params)
+    @club_member = @college.club_members.new(club_member_params)
+    if @club_member.save
       redirect_to "/colleges/#{@college.id}/competent/club_members"
     else
-      render "/colleges/#{@college.id}/competent/club_members/new"
+      render action: :new
     end
   end
 

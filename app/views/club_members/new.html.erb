@@ -6,6 +6,15 @@
     <h2 class="competent-main">新規登録</h2>
 
     <%= form_for @club_member, url:"/colleges/#{@college.id}/competent/club_members/create" do |f| %>
+
+    <% if @club_member.errors.any? %>
+    <ul class="competent-flash-ul">
+      <% @club_member.errors.full_messages.each do |message| %>
+      <li class="competent-flash-error"><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
     <table>
       <tr>
         <th class="competent-edit">

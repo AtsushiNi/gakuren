@@ -18,7 +18,7 @@ class MatchesController < ApplicationController
   end
 
   # スコアアップデート
-  def scorepdate
+  def scoreupdate
     @match = SinglesTournament.first.matches.find(params[:match_num])
     @match.update_attributes(score: get_score)
     if (winner = @match.finish?)

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   post '/admin/pointranking/calculate', to: 'admin/rankings#calculate' #adminユーザー用のポイントランキング計算および表示(モデルの作成保存はadministrateのrankingのcreateで)
 
+  get '/admin/singles_tournaments/:id/new_primary_draw', to: 'admin/singles_tournaments#new_primary_draw' #予選ドロー作成
+  post '/admin/singles_tournaments/:id/create_primary_draw', to: 'admin/singles_tournaments#create_primary_draw' #予選ドロー作成
+  post '/admin/singles_tournaments/:id/create_main_draw', to: 'admin/singles_tournaments#create_main_draw' #本戦ドロー作成
+
   root 'top#home' #ルート
 
   #セッション
@@ -24,7 +28,7 @@ Rails.application.routes.draw do
   get '/livescore', to: 'matches#livescore' #ライブスコアページ
   get '/draw', to: 'matches#draw' #トーナメント表
   post '/livescore/start', to: "matches#start" #試合開始
-  post '/livescore/update', to: 'matches#update' #スコアアップデート
+  post '/livescore/update', to: 'matches#scoreupdate' #スコアアップデート
 
   resources :news, :only => :index
   resources :members, :only => :index

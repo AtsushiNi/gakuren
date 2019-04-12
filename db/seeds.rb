@@ -14,12 +14,12 @@ Member.create(name: "藤本　達朗", email: "tatsurou@gmail.com", addmission_y
 Member.create(name: "樋口　さち", email: "sati@gmail.com", addmission_year: 2018, college: "近畿大学", password: "sati")
 
 # 大学アカウント
-College.create(name: "近畿大学男子部", men: true, email: "kinki_men@gmail.com", league: 1, password: "kinki", players_num: 20, captain: "キャプテン", competent: "主務", prefecture: "大阪府")
-College.create(name: "大阪体育大学男子部", men: true, email: "taidai_men@gmail.com", league: 2, password: "taidai", players_num: 35, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "大阪府")
-College.create(name: "京都大学男子部", men: true, email: "kyoto_men@gmail.com", league: 2, password: "kyoto", players_num: 20, captain: "延澤　尚登", competent: "野末　由惟", prefecture: "京都府")
-College.create(name: "京都産業大学男子部", men: true, email: "kyousan_men@gmail.com", league: 3, password: "kyousan", players_num: 27, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "京都府")
-College.create(name: "天理大学男子部", men: true, email: "tenri_men@gmail.com", league: 4, password: "tenri", players_num: 10, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "奈良県")
-College.create(name: "兵庫教育大学男子部", men: true, email: "hyoukyou_men@gmail.com", league: 5, password: "hyoukyou", players_num: 8, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "兵庫県")
+College.create(name: "近畿大学男子部", initial_name: "近　大", men: true, email: "kinki_men@gmail.com", league: 1, password: "kinki", players_num: 20, captain: "キャプテン", competent: "主務", prefecture: "大阪府")
+College.create(name: "大阪体育大学男子部", initial_name: "大体大", men: true, email: "taidai_men@gmail.com", league: 2, password: "taidai", players_num: 35, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "大阪府")
+College.create(name: "京都大学男子部", initial_name: "京　大", men: true, email: "kyoto_men@gmail.com", league: 2, password: "kyoto", players_num: 20, captain: "延澤　尚登", competent: "野末　由惟", prefecture: "京都府")
+College.create(name: "京都産業大学男子部", initial_name: "京産大", men: true, email: "kyousan_men@gmail.com", league: 3, password: "kyousan", players_num: 27, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "京都府")
+College.create(name: "天理大学男子部",initial_name: "天理大", men: true, email: "tenri_men@gmail.com", league: 4, password: "tenri", players_num: 10, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "奈良県")
+College.create(name: "兵庫教育大学男子部",initial_name: "兵教大", men: true, email: "hyoukyou_men@gmail.com", league: 5, password: "hyoukyou", players_num: 8, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "兵庫県")
 
 College.create(name: "関西大学女子部", men: false, email: "kansai_women@gmail.com", league: 1, password: "kansai", players_num: 4, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "大阪府")
 College.create(name: "同支社大学女子部", men: false, email: "dousisya_women@gmail.com", league: 2, password: "dousisya", players_num: 15, captain: "佐藤　和夫", competent: "山田　一郎", prefecture: "京都府")
@@ -134,3 +134,9 @@ Match.find(89).update_attributes(turn: 2, court: 5, status: "Followed-by")
 Match.find(94).update_attributes(turn: 2, court: 6, status: "Followed-by")
 Match.find(97).update_attributes(turn: 2, court: 10, status: "Followed-by")
 Match.find(102).update_attributes(turn: 2, court: 11, status: "Followed-by")
+
+#ランキング
+Ranking.create(data: "岡崎　大倭:甲南大:63::::::900;柴野　晃輔:関　大:32::::::900;藤永　大真:甲南大:32::::::900;楠部　佑真:近　大:32::::::800;徳光　翔馬:大体大:32::::::800;榊原　楓:立命大:32::::::800;島田　達也:関　大:32::::::700;恒松　優也:近　大:32::::::700;森　匡:甲南大:32::::::600;古川　将樹:立命大:32::::::500;佐伯　峻:同　大:32::::::400;吉田　開:関学大:32::::::400;林　大貴:関　大:32::::::300;矢田　弘樹:関　大:32::::::300;佐藤　稔:神院大:32::::::300;西岡　航:近　大:32::::::300;中山　僚:同　大:32::::::300;瀧本　怜央:立命大:32::::::300;高木　修:近　大:32::::::300;小野　和哉:近　大:32::::::200;小山　拓人:近　大:32::::::200;堀　秦也:同　大:32::::::200;吉田　有宇哉:甲南大:32::::::100;太田　智貴:近　大:32::::::100;飯島　啓斗:同　大:32::::::100;山尾　玲貴:関　大:32::::::32;田中　伸治:関学大:32::::::32;稗島　啓司:甲南大:32::::::32;山岸　大輝:同　大:32::::::32;工藤　丈寛:関　大:32::::::32;長谷川　聡:近　大:32::::::32;豊嶋　一樹:近　大:32::::::32;石島　星歩:同　大:32::::::32;福本　定也:神院大:32::::::32;福嶋　航大:甲南大:32::::::32;谷口　嘉志:近　大:32::::::32;加藤　隆聖:関　大:32::::::32;岩田　三四郎:同　大:32::::::32;小林　泰晴:大体大:32::::::32;松本　樹:近　大:32::::::32;岡田　大樹:近　大:32::::::32;安藤　新:大体大:32::::::32;大塚　健太郎:神院大:32::::::32;高村　烈司:関　大:32::::::32;矢ノ川　歩:近　大:32::::::32;大野　翼:関　大:32::::::32;石川　希望:神院大:32::::::32;竹元　佑亮:関　大:32::::::32;藤井　遼太郎:近　大:16::::::16;水口　凌:近　大:16::::::16;市川　凌輔:近　大:16::::::16;松本　光平:桃　大:16::::::16;山口　大智:関学大:16::::::16;本間　春樹:関学大:16::::::16;西川　康:神院大:16::::::16;西本　光一:甲南大:16::::::16;松田　和樹:同　大:16::::::16;仁坂　拓未:大体大:16::::::16;本田　健人:関　大:16::::::16;森田　隼平:関　大:16::::::16;福長　拓真:近　大:16::::::16;深井　圭:関学大:16::::::16;塩井　岳:関　大:16::::::16;土田　啓太:関学大:16::::::16;福永　太洋:神　大:16::::::16;曽川　大輔:近　大:16::::::16;山本　桐生:関学大:16::::::16;合田　健人:近　大:16::::::16;東川　将大:甲南大:16::::::16;岩村　優友:甲南大:16::::::16;矢野　駿太郎:近　大:16::::::16;安井　優貴:立命大:16::::::16;石井　勇気:近　大:16::::::16;伊達　祐太朗:同　大:16::::::16;中川　雅之:大教大:16::::::16;清水　計都:近　大:16::::::16;高田　直幸:関学大:16::::::16;大窪　広海:同　大:16::::::16;高橋　直種:立命大:16::::::16;栗山　拓也:関学大:16::::::16;")
+
+#エントリー
+tournament.update_attributes(entry_list: "甲南大:岡崎　大倭:藤永　大真:森　匡:吉田　有宇哉:稗島　啓司:福嶋　航大;関　大:柴野　晃輔:島田　達也:林　大貴:矢田　弘樹:山尾　玲貴:工藤　丈寛:加藤　隆聖:高村　烈司:大野　翼:竹元　佑亮;近　大:楠部　佑真:恒松　優也:西岡　航:高木　修:小野　和哉:小山　拓人:太田　智貴:長谷川　聡:豊嶋　一樹:谷口　嘉志:松本　樹:岡田　大樹:矢ノ川　歩;大体大:徳光　翔馬;立命大:榊原　楓:古川　将樹;同　大:佐伯　峻:中山　僚:山岸　大輝:岩田　三四郎:石島　星歩:堀　秦也;神院大:福本　定也:大塚　健太郎:石川　希望:佐藤　稔;関学大:田中　伸治:吉田　開;")

@@ -1,0 +1,21 @@
+<header class="main-content__header">
+  <h1 class="main-content__page-title">予選ドロー作成</h1>
+</header>
+
+<section class="main-content__body">
+  <%= form_tag("/admin/singles_tournaments/#{@tournament.id}/create_primary_draw", method: :post) do %>
+  <div style="margin: 30px 0;">
+    <h2 style="font-size: 18px;margin-bottom: 20px;">使用するポイントランキング</h2>
+    <%= select_tag 'ranking', options_for_select(@rankings.map do |ranking| [ranking.created_at.strftime("%Y-%m-%d"),ranking.id] end) %>
+  </div>
+  <div style="margin: 50px 0;">
+    <h2 style="font-size: 18px;margin-bottom: 20px;">エントリー校一覧</h2>
+    <ol style="margin-left: 20px;">
+      <% @colleges.each do |college| %>
+      <li><%= college[:college] %> <%= college[:players].length %>人</li>
+      <% end %>
+    </ol>
+  </div>
+  <%= submit_tag "Create draw" %>
+  <% end %>
+</section>

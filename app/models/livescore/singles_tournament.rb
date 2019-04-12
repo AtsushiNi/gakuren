@@ -62,6 +62,55 @@ class SinglesTournament < ApplicationRecord
     end
   end
 
+  #シード選手リスト作成(予選のバッティング除けも)
+  def make_seed_players_list(ranking_text)
+    #ポイントタイの選手をランダムソート
+    ranking = ranking_text.to_a
+    sort = []
+    (1..(ranking.length - 1)).each do |i|
+      if ranking[i-1][:total] != ranking[i][:total] #タイじゃない
+        next
+      end
+      if i-1 == 0 || ranking[i-2][:total] != ranking[i-1][:total] #ここからタイ
+        sort.push(ranking[i-1])
+      end
+      sort.push(ranking[i])
+      if i == ranking.length - 1 || ranking[i][:total] != ranking[i+1][:total] #ここまでタイ
+        sort.shuffle!
+        ranking[(i-sort.length+1)..i] = sort
+        sort = []
+      end
+    end
+
+    #ランカーの中で、エントリーしていない選手をはずす
+    entries = self.get_entry_colleges
+    re_ranking = [] #外した後のランキング(大学名と名前とtotalのみ)
+    ranking.each do |ranker|
+      if entries.select{|n| n[:college] == ranker[:college]}[0] && (college[:players].select { |m| m == ranker[:name]}).present? #rankerがentriesのなかにあるとき
+        re_ranking.push({college: ranker[:college], name: ranker[:name], total: ranker[:total]})
+      end
+    end
+    re_ranking
+  end
+
+  #予選ドロー作成
+  def create_primary_draw
+
+  end
+
+  #エントリーしている大学とプレイヤーリスト
+  def get_entry_colleges
+    colleges = self.entry_list.split(";").map do |college|
+      str = college.split(":")
+      hash = {}
+      hash[:college] = str[0]
+      str.delete_at(0)
+      hash[:players] = str
+      hash
+    end
+    return colleges
+  end
+
   private
 
   def draw_validate

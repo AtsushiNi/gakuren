@@ -34,7 +34,7 @@ class CollegesController < ApplicationController
   def entry_create
     @college = College.find(params[:college_id])
     @tournament = SinglesTournament.find(params[:id])
-    @tournament.entry(@college.name, @college.club_members, params[:post][:members])
+    @tournament.entry(@college.initial_name, @college.club_members, params[:post][:members])
     redirect_to "/colleges/#{@college.id}/competent/entry"
   end
 

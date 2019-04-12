@@ -4,10 +4,10 @@ class Ranking < ApplicationRecord
     tournaments.each do |tournament|
       distribution = {} # {勝利ラウンド:獲得ポイント}
       if tournament.name.index("春関") != nil
-        distribution = {type: "春関", 1 => 32, 2 => 63, 3 => 125, 4 => 250, 5 => 500, 6 => 750, 7 => 1000 }
+        distribution = {type: "春関", 0 => 16, 1 => 32, 2 => 63, 3 => 125, 4 => 250, 5 => 500, 6 => 750, 7 => 1000 }
         registerPoints(distribution,tournament, data)
       elsif tournament.name.index("夏関") != nil
-        distribution = {type: "夏関", 1 => 38, 2 => 75, 3 => 150, 4 => 300, 5 => 600, 6 => 900, 7 => 1200 }
+        distribution = {type: "夏関", 0 => 19, 1 => 38, 2 => 75, 3 => 150, 4 => 300, 5 => 600, 6 => 900, 7 => 1200 }
         registerPoints(distribution,tournament, data)
       else
         raise tournament.name+" : この大会の種類が分かりません。大会名は「春関、夏関」のいずれかを含む必要があります。"
@@ -53,6 +53,15 @@ class Ranking < ApplicationRecord
 
   #選手とポイントの登録
   def registerPoints(distribution,tournament,data)
+    tournament.singles_players.each do |player| #本戦出場選手はポイントがつく
+      if player.name != "BYE"
+        if (pointRanker = data.find{|ranker| ranker[:name] == player.name && ranker[:college] == player.college}) #この選手がdataにすでに登録済みの場合はポイントを登録
+          pointRanker[distribution[:type].to_sym] = distribution[0]
+        else
+          data.push({name:player.name, college:player.college, distribution[:type].to_sym => distribution[0], total: 0})
+        end
+      end
+    end
     (1..7).each do |i| #各ラウンド
       tournament.matches.where(round: i).each do |match| #各試合
         if (num = match.winner_num)

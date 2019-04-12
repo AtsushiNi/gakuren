@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_07_203604) do
+ActiveRecord::Schema.define(version: 2019_04_08_071547) do
 
   create_table "club_members", force: :cascade do |t|
     t.integer "college_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_04_07_203604) do
     t.string "competent"
     t.string "prefecture"
     t.boolean "men"
+    t.string "initial_name"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -107,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_04_07_203604) do
     t.datetime "entry_start"
     t.datetime "entry_end"
     t.text "entry_list"
+    t.text "seed_players"
   end
 
 end

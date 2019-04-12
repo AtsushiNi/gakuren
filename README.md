@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+heroku上のデータベース操作
+heroku pg:reset DATABASE_URL
+heroku run rails db:migrate
+heroku run rails db:seed
